@@ -50,8 +50,9 @@ function HeroSection() {
         HERO STAGE: Stretches to 100% full laptop width edge-to-edge.
         Preserves the exact 1671 / 941 native aspect ratio so the entire image fits completely without cropping.
       */}
+      {/* ─── DESKTOP/LAPTOP HERO STAGE (100% UNTOUCHED WIDESCREEN RATIO) ─── */}
       <div
-        className="hero-stage-container"
+        className="hero-stage-desktop"
         style={{
           position: 'relative',
           width: '100%',
@@ -277,6 +278,185 @@ function HeroSection() {
               </motion.button>
             </a>
           </motion.div>
+        </div>
+      </div>
+
+      {/* ─── DEDICATED PHONE/MOBILE HERO STAGE (ZERO OVERLAPPING & APP-LIKE ELEGANCE) ─── */}
+      <div
+        className="hero-stage-mobile"
+        style={{
+          width: '100%',
+          flexDirection: 'column',
+          background: '#FAF7F2',
+        }}
+      >
+        {/* Full-width visual banner showcasing luxury bottles and card */}
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: 'clamp(260px, 68vw, 340px)',
+            overflow: 'hidden',
+          }}
+        >
+          <img
+            src={hero.heroImage}
+            alt="THE BEAUTYWOOD Luxury Skincare"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center 20%',
+              display: 'block',
+            }}
+          />
+          {/* Gentle luxury fade into content card */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(180deg, transparent 65%, #FAF7F2 100%)',
+              pointerEvents: 'none',
+            }}
+          />
+        </div>
+
+        {/* Clean, spacious phone content container with high-contrast luxury typography */}
+        <div
+          style={{
+            padding: '1.25rem 1.25rem 2.5rem',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+          }}
+        >
+          {/* Golden Pill */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              padding: '0.35rem 1rem',
+              background: 'rgba(196, 164, 108, 0.15)',
+              border: '1px solid rgba(196, 164, 108, 0.35)',
+              borderRadius: '30px',
+              marginBottom: '0.85rem',
+            }}
+          >
+            <span style={{ color: '#B89354', fontSize: '9px' }}>✦</span>
+            <span
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.68rem',
+                fontWeight: 700,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: '#8C6718',
+              }}
+            >
+              Liquid Gold Botanical Luxury
+            </span>
+            <span style={{ color: '#B89354', fontSize: '9px' }}>✦</span>
+          </div>
+
+          {/* Unified Serif Headline — Zero flex breaks, zero overlapping */}
+          <h1
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: 'clamp(2.3rem, 8.5vw, 3rem)',
+              fontWeight: 400,
+              color: '#241D19',
+              lineHeight: 1.08,
+              margin: '0 0 0.85rem 0',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Beauty,{' '}
+            <span
+              style={{
+                fontStyle: 'italic',
+                fontWeight: 600,
+                background: 'linear-gradient(135deg, #C4982E 0%, #DDB34B 50%, #9C7215 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Beyond
+            </span>{' '}
+            The Ordinary.
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.86rem',
+              fontWeight: 400,
+              lineHeight: 1.6,
+              color: '#66574D',
+              maxWidth: '420px',
+              margin: '0 auto 1.5rem auto',
+            }}
+          >
+            {hero.subtitle}
+          </p>
+
+          {/* Action CTAs: Full-width tap targets for mobile phones */}
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%', gap: '0.75rem', maxWidth: '340px' }}>
+            <a href="#skincare-kits" style={{ textDecoration: 'none', width: '100%' }}>
+              <button
+                style={{
+                  width: '100%',
+                  padding: '0.95rem 1.5rem',
+                  background: 'linear-gradient(135deg, #EAD8B5 0%, #C4A46C 50%, #B89354 100%)',
+                  color: '#241D19',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.76rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  borderRadius: '35px',
+                  boxShadow: '0 6px 20px rgba(196, 164, 108, 0.35)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.55rem',
+                  cursor: 'pointer',
+                }}
+              >
+                <span>{hero.ctaText}</span>
+                <ArrowRight size={14} />
+              </button>
+            </a>
+
+            <a href="#products" style={{ textDecoration: 'none', width: '100%' }}>
+              <button
+                style={{
+                  width: '100%',
+                  padding: '0.9rem 1.5rem',
+                  background: '#FFFFFF',
+                  border: '1.5px solid rgba(196, 164, 108, 0.5)',
+                  color: '#332B26',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.74rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  borderRadius: '35px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}
+              >
+                <span>Shop All Products</span>
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -855,13 +1035,14 @@ function SkincareKitsSection() {
 
             {/* Right Column: Only The Kit Contents Mentioned */}
             <div>
+              {/* Desktop 3-column row */}
               <div
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(3, 1fr)',
                   gap: 'clamp(0.85rem, 1.6vw, 1.4rem)',
                 }}
-                className="kit-products-row"
+                className="kit-products-row-desktop"
               >
                 {/* 1. Face Cleanser */}
                 <motion.div
@@ -1061,6 +1242,87 @@ function SkincareKitsSection() {
                   </h4>
                 </motion.div>
               </div>
+
+              {/* Dedicated Mobile Horizontal Step Cards (Zero Squishing) */}
+              <div className="kit-products-row-mobile" style={{ flexDirection: 'column', gap: '0.75rem', marginTop: '1.5rem', width: '100%' }}>
+                {/* 1. Cleanser */}
+                <div
+                  onClick={() => navigate('/kit/complete-skincare-kit')}
+                  style={{
+                    background: '#FAF7F2',
+                    borderRadius: '14px',
+                    border: '1px solid rgba(218, 180, 120, 0.45)',
+                    padding: '0.75rem 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1556228722-d9b32cb198bc?w=600&q=80"
+                    alt="Face Cleanser"
+                    style={{ width: '56px', height: '56px', borderRadius: '10px', objectFit: 'cover' }}
+                  />
+                  <div style={{ flex: 1 }}>
+                    <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', color: '#B89354', textTransform: 'uppercase' }}>STEP 01</span>
+                    <h4 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.35rem', margin: 0, fontWeight: 600, color: '#2D241E', lineHeight: 1.1 }}>Face Cleanser</h4>
+                  </div>
+                  <ArrowRight size={16} color="#B89354" />
+                </div>
+
+                {/* 2. Day Serum */}
+                <div
+                  onClick={() => navigate('/kit/complete-skincare-kit')}
+                  style={{
+                    background: '#FAF7F2',
+                    borderRadius: '14px',
+                    border: '1px solid rgba(218, 180, 120, 0.45)',
+                    padding: '0.75rem 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80"
+                    alt="Day Serum"
+                    style={{ width: '56px', height: '56px', borderRadius: '10px', objectFit: 'cover' }}
+                  />
+                  <div style={{ flex: 1 }}>
+                    <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', color: '#B89354', textTransform: 'uppercase' }}>STEP 02</span>
+                    <h4 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.35rem', margin: 0, fontWeight: 600, color: '#2D241E', lineHeight: 1.1 }}>Day Serum</h4>
+                  </div>
+                  <ArrowRight size={16} color="#B89354" />
+                </div>
+
+                {/* 3. Night Serum */}
+                <div
+                  onClick={() => navigate('/kit/complete-skincare-kit')}
+                  style={{
+                    background: '#FAF7F2',
+                    borderRadius: '14px',
+                    border: '1px solid rgba(218, 180, 120, 0.45)',
+                    padding: '0.75rem 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80"
+                    alt="Night Serum"
+                    style={{ width: '56px', height: '56px', borderRadius: '10px', objectFit: 'cover' }}
+                  />
+                  <div style={{ flex: 1 }}>
+                    <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', color: '#B89354', textTransform: 'uppercase' }}>STEP 03</span>
+                    <h4 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.35rem', margin: 0, fontWeight: 600, color: '#2D241E', lineHeight: 1.1 }}>Night Serum</h4>
+                  </div>
+                  <ArrowRight size={16} color="#B89354" />
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -1257,9 +1519,9 @@ function EditorialBreak() {
                 Handcrafted heirlooms that hold more than products — they hold stories, love, and generations of care.
               </p>
 
-              {/* 3 Feature Badges in Golden Harmony */}
+              {/* 3 Feature Badges Desktop */}
               <div
-                className="sandook-badges-wrap"
+                className="sandook-badges-desktop"
                 style={{
                   display: 'flex',
                   alignItems: 'stretch',
@@ -1309,6 +1571,36 @@ function EditorialBreak() {
                   </svg>
                   <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#2C2210', lineHeight: 1.3 }}>
                     BUILT<br />TO LAST<br />GENERATIONS
+                  </div>
+                </div>
+              </div>
+
+              {/* Dedicated Mobile Sandook Feature Cards (Clean, legible, zero squishing) */}
+              <div
+                className="sandook-badges-mobile"
+                style={{
+                  flexDirection: 'column',
+                  gap: '0.65rem',
+                  margin: '1.2rem 0',
+                  width: '100%',
+                }}
+              >
+                <div style={{ background: '#FAF2DE', padding: '0.75rem 1rem', borderRadius: '12px', border: '1px solid rgba(214, 175, 60, 0.45)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ color: '#B88822', fontSize: '1rem' }}>✦</span>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.78rem', fontWeight: 700, color: '#2C2210' }}>
+                    Solid Taali Ki Lakkad <span style={{ color: '#8A7238', fontWeight: 500 }}>(Indian Rosewood)</span>
+                  </div>
+                </div>
+                <div style={{ background: '#FAF2DE', padding: '0.75rem 1rem', borderRadius: '12px', border: '1px solid rgba(214, 175, 60, 0.45)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ color: '#B88822', fontSize: '1rem' }}>✦</span>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.78rem', fontWeight: 700, color: '#2C2210' }}>
+                    Rich, Natural Aromatic Fragrance
+                  </div>
+                </div>
+                <div style={{ background: '#FAF2DE', padding: '0.75rem 1rem', borderRadius: '12px', border: '1px solid rgba(214, 175, 60, 0.45)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ color: '#B88822', fontSize: '1rem' }}>✦</span>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.78rem', fontWeight: 700, color: '#2C2210' }}>
+                    Built To Last Generations <span style={{ color: '#8A7238', fontWeight: 500 }}>(Timeless Heirloom)</span>
                   </div>
                 </div>
               </div>

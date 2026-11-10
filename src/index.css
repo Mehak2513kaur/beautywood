@@ -508,3 +508,46 @@ html, body, #root {
     font-size: 1.7rem !important;
   }
 }
+
+/* ─── DUAL DISPLAY RULES FOR LAPTOP VS PHONE ─── */
+@media (max-width: 768px) {
+  .hero-stage-desktop {
+    display: none !important;
+  }
+  .hero-stage-mobile {
+    display: flex !important;
+  }
+  .kit-products-row-desktop {
+    display: none !important;
+  }
+  .kit-products-row-mobile {
+    display: flex !important;
+  }
+  .sandook-badges-desktop {
+    display: none !important;
+  }
+  .sandook-badges-mobile {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-stage-desktop {
+    display: flex !important;
+  }
+  .hero-stage-mobile {
+    display: none !important;
+  }
+  .kit-products-row-desktop {
+    display: grid !important;
+  }
+  .kit-products-row-mobile {
+    display: none !important;
+  }
+  .sandook-badges-desktop {
+    display: flex !important;
+  }
+  .sandook-badges-mobile {
+    display: none !important;
+  }
+}
