@@ -579,7 +579,7 @@ function SkincareKitsSection() {
       <SectionGlitterCanvas />
 
       {/* ─── CONTENT CONTAINER (ELEVATED ABOVE PARTICLES) ─── */}
-      <div style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 2.5rem', position: 'relative', zIndex: 3 }}>
+      <div style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 clamp(1rem, 3.5vw, 2.5rem)', position: 'relative', zIndex: 3 }}>
         {/* ─── SECTION HEADER ─── */}
         <div
           style={{
@@ -692,7 +692,7 @@ function SkincareKitsSection() {
             style={{
               padding: 'clamp(2rem, 3.5vw, 3.2rem)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
               gap: 'clamp(2rem, 3.5vw, 3.5rem)',
               alignItems: 'center',
             }}
@@ -1139,8 +1139,9 @@ function EditorialBreak() {
         {sandook.watermarkText}
       </div>
 
-      <div style={{ maxWidth: '1620px', width: '100%', margin: '0 auto', padding: '0 clamp(1.5rem, 3.5vw, 3.5rem)', position: 'relative', zIndex: 2 }}>
+      <div style={{ maxWidth: '1620px', width: '100%', margin: '0 auto', padding: '0 clamp(1rem, 3.5vw, 3.5rem)', position: 'relative', zIndex: 2 }}>
         <div
+          className="sandook-main-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'minmax(0, 1.3fr) minmax(320px, 440px)',
@@ -1247,6 +1248,7 @@ function EditorialBreak() {
 
               {/* 3 Feature Badges in Golden Harmony */}
               <div
+                className="sandook-badges-wrap"
                 style={{
                   display: 'flex',
                   alignItems: 'stretch',
@@ -1271,7 +1273,7 @@ function EditorialBreak() {
                   </div>
                 </div>
 
-                <div style={{ width: '1px', background: 'rgba(214, 175, 60, 0.35)', alignSelf: 'stretch' }} />
+                <div className="sandook-badge-divider" style={{ width: '1px', background: 'rgba(214, 175, 60, 0.35)', alignSelf: 'stretch' }} />
 
                 {/* Badge 2 */}
                 <div style={{ flex: 1, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -1285,7 +1287,7 @@ function EditorialBreak() {
                   </div>
                 </div>
 
-                <div style={{ width: '1px', background: 'rgba(214, 175, 60, 0.35)', alignSelf: 'stretch' }} />
+                <div className="sandook-badge-divider" style={{ width: '1px', background: 'rgba(214, 175, 60, 0.35)', alignSelf: 'stretch' }} />
 
                 {/* Badge 3 */}
                 <div style={{ flex: 1, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -1365,10 +1367,12 @@ function EditorialBreak() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="sandook-showcase-container"
             style={{ position: 'relative', width: '100%', maxWidth: '420px', margin: '0 auto' }}
           >
             {/* Radiant Golden offset backing card */}
             <div
+              className="sandook-backing-card"
               style={{
                 position: 'absolute',
                 right: '-1.1rem',
@@ -1414,6 +1418,7 @@ function EditorialBreak() {
               animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
               whileHover={{ scale: 1.05, y: -3 }}
+              className="sandook-memories-card"
               style={{
                 position: 'absolute',
                 top: '-1.5rem',
@@ -1645,7 +1650,7 @@ function ProductGallery() {
         }}
       />
 
-      <div style={{ maxWidth: '1480px', margin: '0 auto', padding: '0 clamp(1.5rem, 3.5vw, 3.5rem)', position: 'relative', zIndex: 2 }}>
+      <div style={{ maxWidth: '1480px', margin: '0 auto', padding: '0 clamp(1rem, 3.5vw, 3.5rem)', position: 'relative', zIndex: 2 }}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -1707,7 +1712,7 @@ function ProductGallery() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 285px), 1fr))',
             gap: 'clamp(1.75rem, 3vw, 2.75rem)',
             alignItems: 'stretch',
           }}
@@ -2292,7 +2297,7 @@ function BrandStory() {
       </div>
 
       <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'center' }}>
+        <div className="brand-story-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2.5rem, 5vw, 6rem)', alignItems: 'center' }}>
           {/* Left — image */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -2300,7 +2305,7 @@ function BrandStory() {
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             style={{ position: 'relative' }}
           >
-            <div style={{ height: '600px', overflow: 'hidden' }}>
+            <div className="brand-story-img-wrap" style={{ height: 'clamp(320px, 50vw, 600px)', overflow: 'hidden' }}>
               <img
                 src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&q=80"
                 alt="THE BEAUTYWOOD story"
@@ -2501,7 +2506,7 @@ function NewsletterSection() {
         </p>
         <form
           onSubmit={e => { e.preventDefault(); alert('Thank you for subscribing to THE BEAUTYWOOD.') }}
-          style={{ display: 'flex', gap: '0', maxWidth: '480px', margin: '0 auto' }}
+          className="newsletter-form" style={{ display: 'flex', gap: '0', maxWidth: '480px', margin: '0 auto' }}
         >
           <input
             type="email"

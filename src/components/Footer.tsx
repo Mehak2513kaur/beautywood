@@ -29,7 +29,7 @@ export default function Footer() {
       {/* Oversized wordmark */}
       <div style={{
         borderBottom: '1px solid rgba(196,164,108,0.08)',
-        padding: '4rem 2rem 3rem',
+        padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem) 3rem',
         overflow: 'hidden',
         textAlign: 'center',
       }}>
@@ -57,7 +57,7 @@ export default function Footer() {
       <div style={{
         maxWidth: '1440px',
         margin: '0 auto',
-        padding: '4rem 2rem',
+        padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)',
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
         gap: '3rem',
@@ -164,7 +164,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div style={{
         borderTop: '1px solid rgba(196,164,108,0.08)',
-        padding: '1.5rem 2rem',
+        padding: '1.5rem clamp(1rem, 3vw, 2rem)',
         maxWidth: '1440px',
         margin: '0 auto',
         display: 'flex',

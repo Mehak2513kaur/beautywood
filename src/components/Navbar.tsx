@@ -68,7 +68,7 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 100,
-          padding: scrolled ? '0.85rem 2.5rem' : '1.4rem 2.5rem',
+          padding: scrolled ? '0.75rem clamp(1rem, 3.5vw, 2.5rem)' : '1.1rem clamp(1rem, 3.5vw, 2.5rem)',
           transition: 'all 0.4s cubic-bezier(0.25,0.1,0.25,1)',
           backgroundColor: scrolled ? 'rgba(255, 253, 249, 0.94)' : 'rgba(250, 247, 242, 0.75)',
           backdropFilter: 'blur(16px)',
@@ -86,9 +86,9 @@ export default function Navbar() {
             <motion.div whileHover={{ opacity: 0.7 }} transition={{ duration: 0.2 }}>
               <span style={{
                 fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: '1rem',
+                fontSize: 'clamp(0.82rem, 1.3vw, 1rem)',
                 fontWeight: 600,
-                letterSpacing: '0.25em',
+                letterSpacing: '0.2em',
                 textTransform: 'uppercase',
                 color: textColor,
                 transition: 'color 0.4s ease',

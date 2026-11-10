@@ -213,9 +213,10 @@ export default function AdminPage() {
       </header>
 
       {/* Main Content Layout */}
-      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+      <div className="admin-layout" style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         {/* Sidebar Tabs */}
         <aside
+          className="admin-sidebar"
           style={{
             width: '260px',
             borderRight: '1px solid rgba(196, 154, 70, 0.2)',
@@ -228,6 +229,7 @@ export default function AdminPage() {
           }}
         >
           <div
+            className="admin-sidebar-header"
             style={{
               fontSize: '0.62rem',
               fontWeight: 700,
@@ -295,7 +297,7 @@ export default function AdminPage() {
             )
           })}
 
-          <div style={{ marginTop: 'auto', padding: '1rem 0.75rem', borderTop: '1px solid rgba(196, 154, 70, 0.2)' }}>
+          <div className="admin-sidebar-tip" style={{ marginTop: 'auto', padding: '1rem 0.75rem', borderTop: '1px solid rgba(196, 154, 70, 0.2)' }}>
             <div style={{ fontSize: '0.7rem', color: '#7A6230', lineHeight: 1.4, background: '#FFFFFF', padding: '0.65rem 0.75rem', borderRadius: '10px', border: '1px solid rgba(196, 154, 70, 0.22)' }}>
               💡 All modifications automatically update the live store and persist across reloads.
             </div>

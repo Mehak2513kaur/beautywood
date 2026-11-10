@@ -270,3 +270,128 @@ button {
   background: var(--gold);
   display: block;
 }
+
+
+/* ─── COMPREHENSIVE RESPONSIVE DESIGN SYSTEM ───────────────────────── */
+
+/* 1. Global Viewport & Overflow Safety */
+html, body, #root {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 2. Fluid Layout Containers */
+.responsive-container {
+  width: 100%;
+  max-width: 1540px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 3.5vw, 2.5rem);
+  padding-right: clamp(1rem, 3.5vw, 2.5rem);
+}
+
+/* 3. The Sandook Section Responsive Rules */
+@media (max-width: 990px) {
+  .sandook-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  .sandook-showcase-container {
+    max-width: 380px !important;
+    margin: 1.5rem auto 0 !important;
+  }
+  .sandook-backing-card {
+    right: -0.5rem !important;
+    bottom: -0.5rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .sandook-badges-wrap {
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+    padding: 1rem 0 !important;
+  }
+  .sandook-badge-divider {
+    width: 100% !important;
+    height: 1px !important;
+    background: rgba(214, 175, 60, 0.35) !important;
+  }
+  .sandook-memories-card {
+    top: -1rem !important;
+    right: -0.5rem !important;
+    width: 130px !important;
+  }
+  .sandook-showcase-container {
+    max-width: 310px !important;
+  }
+}
+
+/* 4. Brand Story Section Responsive Rules */
+@media (max-width: 960px) {
+  .brand-story-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  .brand-story-img-wrap {
+    height: clamp(300px, 55vw, 480px) !important;
+  }
+}
+
+/* 5. Newsletter Form Responsive Rules */
+@media (max-width: 520px) {
+  .newsletter-form {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  .newsletter-form input {
+    border-right: 1px solid rgba(196, 164, 108, 0.4) !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+  }
+  .newsletter-form button {
+    width: 100% !important;
+    border-radius: 8px !important;
+    justify-content: center !important;
+  }
+}
+
+/* 6. Admin Panel Responsive Rules */
+@media (max-width: 900px) {
+  .admin-layout {
+    flex-direction: column !important;
+    overflow-y: auto !important;
+  }
+  .admin-sidebar {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(196, 154, 70, 0.2) !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding: 0.75rem 1rem !important;
+    gap: 0.5rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .admin-sidebar button {
+    flex-shrink: 0 !important;
+    width: auto !important;
+    padding: 0.6rem 0.9rem !important;
+  }
+  .admin-sidebar-header,
+  .admin-sidebar-tip {
+    display: none !important;
+  }
+}
+
+/* 7. General Mobile Polish (Touch, Typography, Padding) */
+@media (max-width: 480px) {
+  .btn-primary, .btn-ghost {
+    padding: 0.85rem 1.6rem !important;
+    font-size: 0.65rem !important;
+  }
+  .hero-animated-text-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
