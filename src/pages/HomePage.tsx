@@ -51,28 +51,30 @@ function HeroSection() {
         Preserves the exact 1671 / 941 native aspect ratio so the entire image fits completely without cropping.
       */}
       <div
+        className="hero-stage-container"
         style={{
           position: 'relative',
           width: '100%',
-          maxWidth: '100%', // Full laptop screen width
+          maxWidth: '100%',
           aspectRatio: '1671 / 941',
           margin: 0,
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'flex-end', // Aligns text into the empty lower satin space
+          justifyContent: 'flex-end',
         }}
       >
         {/* Full-width image matching laptop dimensions */}
         <img
           src={hero.heroImage}
           alt="THE BEAUTYWOOD Starting Hero"
+          className="hero-stage-image"
           style={{
             position: 'absolute',
             inset: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover', // Fills 100% edge-to-edge seamlessly matching native 1671/941 aspect ratio
+            objectFit: 'cover',
             display: 'block',
           }}
         />
@@ -83,6 +85,7 @@ function HeroSection() {
           Lower 40% has gentle darkening so the animated text has great contrast.
         */}
         <div
+          className="hero-gradient-overlay"
           style={{
             position: 'absolute',
             inset: 0,
@@ -161,6 +164,7 @@ function HeroSection() {
                     delay: 0.25 + index * 0.1,
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
+                  className="hero-headline-word"
                   style={{
                     display: 'inline-block',
                     fontFamily: 'Cormorant Garamond, Georgia, serif',
@@ -190,6 +194,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+            className="hero-subtitle-text"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: 'clamp(0.85rem, 1.25vw, 1.15rem)',
@@ -210,6 +215,7 @@ function HeroSection() {
             initial={{ opacity: 0, scale: 0.95, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.85 }}
+            className="hero-cta-group"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -611,6 +617,7 @@ function SkincareKitsSection() {
               <span>✦</span>
             </div>
             <h2
+              className="skincare-kit-heading"
               style={{
                 fontFamily: 'Cormorant Garamond, Georgia, serif',
                 fontSize: 'clamp(2.7rem, 5vw, 4.2rem)',
@@ -723,6 +730,7 @@ function SkincareKitsSection() {
               </div>
 
               <h3
+                className="kit-card-title"
                 style={{
                   fontFamily: 'Cormorant Garamond, Georgia, serif',
                   fontSize: 'clamp(2.4rem, 3.8vw, 3.4rem)',
@@ -785,7 +793,7 @@ function SkincareKitsSection() {
               </div>
 
               {/* Action Buttons: Add Kit to Bag (Sold as single unit) & Shop The Kit */}
-              <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div className="kit-cta-buttons" style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', alignItems: 'center' }}>
                 <motion.button
                   whileHover={{
                     scale: 1.03,
@@ -1177,6 +1185,7 @@ function EditorialBreak() {
               {/* Title with radiant golden italic flourish */}
               <div style={{ marginBottom: '0.65rem' }}>
                 <h2
+                  className="sandook-title-line1"
                   style={{
                     fontFamily: 'Cormorant Garamond, Georgia, serif',
                     fontSize: 'clamp(2.8rem, 4.8vw, 4.8rem)',
@@ -1190,6 +1199,7 @@ function EditorialBreak() {
                   {sandook.titleLine1}
                 </h2>
                 <div
+                  className="sandook-title-line2-wrap"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -1197,6 +1207,7 @@ function EditorialBreak() {
                   }}
                 >
                   <span
+                    className="sandook-title-line2"
                     style={{
                       fontFamily: 'Cormorant Garamond, Georgia, serif',
                       fontSize: 'clamp(2.8rem, 4.8vw, 4.8rem)',
@@ -1681,6 +1692,7 @@ function ProductGallery() {
           </div>
 
           <h2
+            className="products-gallery-heading"
             style={{
               fontFamily: 'Cormorant Garamond, Georgia, serif',
               fontSize: 'clamp(2.5rem, 4.5vw, 4.2rem)',
@@ -1879,6 +1891,7 @@ function ProductGallery() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem', gap: '1rem' }}>
                   <div>
                     <h3
+                      className="product-item-title"
                       style={{
                         fontFamily: 'Cormorant Garamond, Georgia, serif',
                         fontSize: '2.1rem',

@@ -395,3 +395,116 @@ html, body, #root {
     padding-right: 1rem !important;
   }
 }
+
+/* ─── TAILORED MOBILE PERFECTION (ZERO OVERLAPPING & CHAOS) ─────────── */
+
+/* Hero Mobile Layout */
+@media (max-width: 860px) {
+  .hero-stage-container {
+    aspect-ratio: auto !important;
+    min-height: calc(100svh - 4.2rem) !important;
+    min-height: 560px !important;
+    justify-content: flex-end !important;
+    padding-bottom: 2rem !important;
+  }
+  .hero-stage-image {
+    object-position: center 20% !important;
+  }
+  .hero-gradient-overlay {
+    background: linear-gradient(180deg, transparent 20%, rgba(20, 16, 12, 0.45) 50%, rgba(18, 14, 10, 0.92) 85%) !important;
+  }
+  .hero-animated-text-container {
+    padding: 1.5rem 1.2rem 0.5rem !important;
+  }
+  .hero-headline-word {
+    font-size: clamp(1.8rem, 7.5vw, 2.6rem) !important;
+    line-height: 1.15 !important;
+  }
+  .hero-subtitle-text {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+  .hero-cta-group a,
+  .hero-cta-group button {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+/* Skincare Kit Section Mobile Rules */
+@media (max-width: 680px) {
+  .skincare-kit-heading {
+    font-size: clamp(2rem, 7.5vw, 2.8rem) !important;
+  }
+  .kit-card-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.3rem) !important;
+  }
+  .kit-cta-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.65rem !important;
+  }
+  .kit-cta-buttons button,
+  .kit-cta-buttons a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .kit-products-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .kit-products-row > div {
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    padding: 0.75rem 1rem !important;
+    gap: 1rem !important;
+  }
+  .kit-products-row > div > div:first-child {
+    align-self: center !important;
+    margin-bottom: 0 !important;
+  }
+  .kit-products-row img {
+    width: 55px !important;
+    height: 55px !important;
+  }
+  .kit-products-row h4 {
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+  }
+}
+
+/* Sandook Typography on Mobile */
+@media (max-width: 768px) {
+  .sandook-title-line1,
+  .sandook-title-line2 {
+    font-size: clamp(1.9rem, 7.5vw, 2.6rem) !important;
+    line-height: 1.1 !important;
+  }
+  .sandook-title-line2-wrap svg {
+    width: 30px !important;
+    height: 30px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Product Gallery on Mobile */
+@media (max-width: 600px) {
+  .products-gallery-heading {
+    font-size: clamp(1.9rem, 7.5vw, 2.6rem) !important;
+  }
+  .product-item-title {
+    font-size: 1.7rem !important;
+  }
+}
