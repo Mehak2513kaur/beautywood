@@ -1411,7 +1411,7 @@ function EditorialBreak() {
 
       <div style={{ maxWidth: '1620px', width: '100%', margin: '0 auto', padding: '0 clamp(1rem, 3.5vw, 3.5rem)', position: 'relative', zIndex: 2 }}>
         <div
-          className="sandook-main-grid"
+          className="sandook-desktop-stage sandook-main-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'minmax(0, 1.3fr) minmax(320px, 440px)',
@@ -1748,6 +1748,252 @@ function EditorialBreak() {
               />
             </motion.div>
           </motion.div>
+        </div>
+
+        {/* MOBILE STAGE: Custom-Built Native Phone Storytelling Layout */}
+        <div className="sandook-mobile-stage" style={{ width: '100%', padding: '0 0.25rem' }}>
+          {/* 1. Mobile Eyebrow */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
+            <span style={{ width: '24px', height: '1px', background: '#C4982E' }} />
+            <span
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.68rem',
+                fontWeight: 700,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: '#A87C1D',
+              }}
+            >
+              {sandook.eyebrow}
+            </span>
+            <span style={{ width: '24px', height: '1px', background: '#C4982E' }} />
+          </div>
+
+          {/* 2. Mobile Title */}
+          <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
+            <h2
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '2.1rem',
+                fontWeight: 500,
+                lineHeight: 1.05,
+                color: '#2C2210',
+                margin: 0,
+              }}
+            >
+              {sandook.titleLine1}
+            </h2>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', marginTop: '0.2rem' }}>
+              <span
+                style={{
+                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontSize: '2.2rem',
+                  fontWeight: 600,
+                  fontStyle: 'italic',
+                  lineHeight: 1.05,
+                  background: 'linear-gradient(135deg, #B88822 0%, #DDB34B 50%, #9C7215 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                {sandook.titleLine2 && sandook.titleLine2 !== 'A Legacy of Love & Blessings.' ? sandook.titleLine2 : 'The Sandook.'}
+              </span>
+              <svg width="26" height="26" viewBox="0 0 44 44" fill="none" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M 6 38 C 16 32, 28 20, 36 6" />
+                <path d="M 18 29 C 14 24, 16 18, 22 21 C 28 24, 25 28, 18 29 Z" />
+                <path d="M 26 21 C 24 14, 29 11, 33 15 C 37 19, 32 22, 26 21 Z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* 3. Mobile Hero Photography Card (Clean, framed, perfectly scaled) */}
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: '340px',
+              margin: '0 auto 1.4rem auto',
+            }}
+          >
+            {/* Subtle Gold Backing Glow */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: '-4px',
+                background: 'linear-gradient(135deg, #E8C86A 0%, #D4A83E 100%)',
+                borderRadius: '20px',
+                opacity: 0.45,
+                filter: 'blur(6px)',
+              }}
+            />
+            {/* Main Picture Frame */}
+            <div
+              style={{
+                position: 'relative',
+                borderRadius: '18px',
+                overflow: 'hidden',
+                border: '2px solid rgba(214, 175, 60, 0.6)',
+                boxShadow: '0 12px 28px rgba(180, 140, 35, 0.22)',
+                background: '#FAF2DE',
+              }}
+            >
+              <img
+                src={sandook.heroMainImage}
+                alt="THE BEAUTYWOOD Heirloom Sandook"
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+              />
+              {/* Corner Badge */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  right: '10px',
+                  background: 'rgba(255, 253, 248, 0.94)',
+                  backdropFilter: 'blur(8px)',
+                  padding: '4px 10px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(196, 152, 46, 0.4)',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.62rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  color: '#8A6818',
+                  textTransform: 'uppercase',
+                }}
+              >
+                ✦ Taali Wood Heirloom
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Mobile Emotional Narrative & Tagline */}
+          <div style={{ textAlign: 'center', marginBottom: '1.2rem', padding: '0 0.5rem' }}>
+            <p
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontSize: '1.22rem',
+                fontStyle: 'italic',
+                fontWeight: 600,
+                lineHeight: 1.35,
+                color: '#3D311A',
+                margin: '0 0 0.6rem 0',
+              }}
+            >
+              “Handcrafted heirlooms that hold more than products — they hold stories, love, and generations of care.”
+            </p>
+            <p
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.84rem',
+                lineHeight: 1.6,
+                color: '#5C4E2D',
+                margin: 0,
+              }}
+            >
+              {sandook.storyNarrative}
+            </p>
+          </div>
+
+          {/* 5. Mobile Heritage Badges (3 Compact, Elegant Badges) */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.55rem',
+              marginBottom: '1.4rem',
+            }}
+          >
+            <div
+              style={{
+                background: 'linear-gradient(90deg, #FAF4E5 0%, #FFFDF8 100%)',
+                padding: '0.7rem 0.9rem',
+                borderRadius: '12px',
+                border: '1px solid rgba(214, 175, 60, 0.45)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+              }}
+            >
+              <span style={{ color: '#B88822', fontSize: '0.95rem', flexShrink: 0 }}>✦</span>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.76rem', fontWeight: 700, color: '#2C2210' }}>
+                Solid Taali Ki Lakkad <span style={{ color: '#8A7238', fontWeight: 500 }}>(Indian Rosewood)</span>
+              </div>
+            </div>
+            <div
+              style={{
+                background: 'linear-gradient(90deg, #FAF4E5 0%, #FFFDF8 100%)',
+                padding: '0.7rem 0.9rem',
+                borderRadius: '12px',
+                border: '1px solid rgba(214, 175, 60, 0.45)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+              }}
+            >
+              <span style={{ color: '#B88822', fontSize: '0.95rem', flexShrink: 0 }}>✦</span>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.76rem', fontWeight: 700, color: '#2C2210' }}>
+                Rich, Natural Aromatic Fragrance
+              </div>
+            </div>
+            <div
+              style={{
+                background: 'linear-gradient(90deg, #FAF4E5 0%, #FFFDF8 100%)',
+                padding: '0.7rem 0.9rem',
+                borderRadius: '12px',
+                border: '1px solid rgba(214, 175, 60, 0.45)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+              }}
+            >
+              <span style={{ color: '#B88822', fontSize: '0.95rem', flexShrink: 0 }}>✦</span>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.76rem', fontWeight: 700, color: '#2C2210' }}>
+                Built To Last Generations <span style={{ color: '#8A7238', fontWeight: 500 }}>(Timeless Heirloom)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 6. Mobile Artisanal Story Cards (Horizontal row layout: Image + Details) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {sandook.thumbnails.map((thumb, i) => (
+              <div
+                key={i}
+                style={{
+                  background: '#FCF8EE',
+                  borderRadius: '14px',
+                  padding: '0.7rem',
+                  border: '1px solid rgba(220, 185, 90, 0.45)',
+                  boxShadow: '0 4px 14px rgba(190, 150, 50, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.85rem',
+                }}
+              >
+                <img
+                  src={thumb.image}
+                  alt={thumb.title}
+                  style={{
+                    width: '68px',
+                    height: '68px',
+                    objectFit: 'cover',
+                    borderRadius: '10px',
+                    flexShrink: 0,
+                    border: '1px solid rgba(214, 175, 60, 0.3)',
+                  }}
+                />
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.82rem', fontWeight: 700, color: '#2C2210', marginBottom: '0.2rem' }}>
+                    {thumb.title}
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', color: '#6E5D32', lineHeight: 1.35 }}>
+                    {thumb.desc}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

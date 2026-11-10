@@ -551,3 +551,22 @@ html, body, #root {
     display: none !important;
   }
 }
+
+/* Sandook Dual Stage Architecture */
+@media (max-width: 768px) {
+  .sandook-desktop-stage {
+    display: none !important;
+  }
+  .sandook-mobile-stage {
+    display: block !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .sandook-desktop-stage {
+    display: grid !important;
+  }
+  .sandook-mobile-stage {
+    display: none !important;
+  }
+}
