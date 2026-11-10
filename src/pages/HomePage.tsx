@@ -295,7 +295,7 @@ function HeroSection() {
           style={{
             position: 'relative',
             width: '100%',
-            height: 'clamp(260px, 68vw, 340px)',
+            height: 'clamp(128px, 37.5vw, 155px)',
             overflow: 'hidden',
           }}
         >
@@ -306,7 +306,7 @@ function HeroSection() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center 20%',
+              objectPosition: 'center top',
               display: 'block',
             }}
           />
@@ -324,7 +324,7 @@ function HeroSection() {
         {/* Clean, spacious phone content container with high-contrast luxury typography */}
         <div
           style={{
-            padding: '1.25rem 1.25rem 2.5rem',
+            padding: '0.65rem 1.25rem 2.5rem',
             textAlign: 'center',
             display: 'flex',
             flexDirection: 'column',
