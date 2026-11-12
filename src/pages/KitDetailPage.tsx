@@ -52,9 +52,44 @@ export default function KitDetailPage() {
   }
 
   return (
-    <div style={{ background: '#FAF7F2', minHeight: '100vh', color: '#2D241E', paddingTop: '4.8rem' }}>
+    <div
+      style={{
+        background: 'linear-gradient(180deg, #FBF4E4 0%, #F5E6C8 48%, #EFE0BE 100%)',
+        minHeight: '100vh',
+        color: '#2D241E',
+        paddingTop: '4.8rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Subtle Golden Ambient Glows matching Beautywood Theme */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '-80px',
+          right: '-80px',
+          width: '420px',
+          height: '420px',
+          background: 'radial-gradient(circle, rgba(221, 179, 75, 0.22) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '80px',
+          left: '-100px',
+          width: '380px',
+          height: '380px',
+          background: 'radial-gradient(circle, rgba(196, 152, 46, 0.18) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
       {/* ─── LAPTOP PROPORTIONED CONTAINER (1380PX WIDTH) ─── */}
-      <div className="kit-detail-container" style={{ maxWidth: '1380px', margin: '0 auto', padding: '1rem 2.5rem 3rem' }}>
+      <div className="kit-detail-container" style={{ maxWidth: '1380px', margin: '0 auto', padding: '1rem 2.5rem 3rem', position: 'relative', zIndex: 1 }}>
         {/* ─── TOP BAR / BACK LINK ─── */}
         <div style={{ marginBottom: '1.2rem' }}>
           <Link
@@ -68,7 +103,7 @@ export default function KitDetailPage() {
               fontWeight: 600,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#706056',
+              color: '#6E5538',
               textDecoration: 'none',
               transition: 'color 0.2s',
             }}
@@ -87,8 +122,8 @@ export default function KitDetailPage() {
             flexWrap: 'wrap',
             gap: '1.25rem',
             paddingBottom: '1.4rem',
-            borderBottom: '1px solid rgba(196, 164, 108, 0.25)',
-            marginBottom: '1.6rem',
+            borderBottom: '1.5px solid rgba(196, 152, 46, 0.38)',
+            marginBottom: '1.8rem',
           }}
         >
           <div>
@@ -177,11 +212,11 @@ export default function KitDetailPage() {
               key={product.id}
               className="kit-product-card"
               style={{
-                background: '#FFFDF9',
-                borderRadius: '18px',
-                border: '1.5px solid rgba(218, 180, 120, 0.45)',
-                padding: '1.35rem 1.6rem',
-                boxShadow: '0 6px 20px rgba(184, 147, 84, 0.07)',
+                background: 'linear-gradient(145deg, #FFF9EC 0%, #F8EBD0 100%)',
+                borderRadius: '20px',
+                border: '1.5px solid rgba(196, 152, 46, 0.45)',
+                padding: '1.4rem 1.65rem',
+                boxShadow: '0 10px 30px rgba(168, 124, 29, 0.12)',
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: '1.75rem',
@@ -196,8 +231,9 @@ export default function KitDetailPage() {
                   flexShrink: 0,
                   borderRadius: '14px',
                   overflow: 'hidden',
-                  background: '#FAF7F2',
-                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.06)',
+                  background: '#F4E4C1',
+                  border: '1.5px solid rgba(196, 152, 46, 0.4)',
+                  boxShadow: '0 6px 18px rgba(140, 103, 24, 0.14)',
                 }}
               >
                 <img
@@ -269,10 +305,10 @@ export default function KitDetailPage() {
                 {/* Ingredients & Benefits Breakdown: Each Ingredient Separate */}
                 <div
                   style={{
-                    background: '#FAF7F2',
+                    background: 'rgba(242, 224, 184, 0.42)',
                     borderRadius: '14px',
-                    padding: '0.9rem 1.05rem',
-                    border: '1px solid rgba(196, 164, 108, 0.25)',
+                    padding: '0.95rem 1.1rem',
+                    border: '1px solid rgba(196, 152, 46, 0.34)',
                   }}
                 >
                   <div
@@ -292,7 +328,7 @@ export default function KitDetailPage() {
                         fontWeight: 700,
                         letterSpacing: '0.14em',
                         textTransform: 'uppercase',
-                        color: '#8C6718',
+                        color: '#785310',
                       }}
                     >
                       ✦ Key Ingredients & Their Benefits
@@ -301,7 +337,7 @@ export default function KitDetailPage() {
                       style={{
                         fontFamily: 'Inter, sans-serif',
                         fontSize: '0.64rem',
-                        color: '#8A7565',
+                        color: '#6E5538',
                         fontStyle: 'italic',
                       }}
                     >
@@ -323,15 +359,18 @@ export default function KitDetailPage() {
                         <div
                           key={idx}
                           style={{
-                            background: isHero ? '#FCF7EA' : '#FFFDF9',
+                            background: isHero
+                              ? 'linear-gradient(135deg, #FBF0D6 0%, #F4DFB0 100%)'
+                              : '#FCF5E5',
                             border: isHero
-                              ? '1px solid rgba(196, 152, 46, 0.45)'
-                              : '1px solid rgba(196, 164, 108, 0.22)',
+                              ? '1px solid rgba(184, 136, 34, 0.55)'
+                              : '1px solid rgba(196, 152, 46, 0.28)',
                             borderRadius: '10px',
-                            padding: '0.55rem 0.75rem',
+                            padding: '0.6rem 0.8rem',
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '0.2rem',
+                            gap: '0.22rem',
+                            boxShadow: isHero ? '0 2px 8px rgba(184, 136, 34, 0.12)' : 'none',
                           }}
                         >
                           <div
