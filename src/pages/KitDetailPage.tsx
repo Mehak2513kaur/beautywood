@@ -6,6 +6,33 @@ import { useCartStore } from '../store/cartStore'
 import { useAdminStore } from '../store/adminStore'
 import Footer from '../components/Footer'
 
+const INGREDIENT_BENEFITS: Record<string, string> = {
+  'glycolic acid': 'Gently exfoliates dead skin cells, unclogs pores, and refines skin texture for a smoother complexion.',
+  'vitamin c': 'Potent antioxidant that brightens dull skin, fades dark spots, and boosts natural radiance.',
+  'papaya extract': 'Rich in natural papain enzymes to dissolve impurities and promote gentle skin renewal.',
+  'tulsi extract': 'Sacred Ayurvedic purifier that calms inflammation, fights blemishes, and detoxifies pores.',
+  'aloe extract': 'Deeply hydrates, cools, and soothes sensitive or irritated skin while preserving moisture.',
+  'neem extract': 'Natural antibacterial botanical that clears breakouts, balances sebum, and protects the barrier.',
+  'panthenol': 'Pro-Vitamin B5 humectant that locks in hydration, softens skin, and strengthens the protective barrier.',
+  'niacinamide': 'Minimizes enlarged pores, balances oil production, and reinforces the skin moisture barrier.',
+  'melazero': 'Clinically proven brightening active that targets stubborn hyperpigmentation and uneven tone gently.',
+  'pro col one+': 'Advanced collagen-boosting complex that firms skin, improves elasticity, and softens fine lines.',
+  'caffeine': 'Energizes tired skin, reduces morning puffiness, and visibly tightens and revitalizes complexion.',
+  'pro vitamin b5': 'Deeply attracts and retains moisture to keep skin plump, calm, and supple throughout the day.',
+  'vitamin e': 'Nourishing antioxidant that shields against UV & environmental stressors while enhancing Vitamin C efficacy.',
+  'hyaluronic acid': 'Multi-depth hydrator that binds up to 1000× its weight in water for instant, dewy plumpness.',
+  'neem': 'Overnight purifying botanical that calms redness, clarifies blemishes, and keeps pores clean while you sleep.',
+  'manjishta': 'Revered Ayurvedic herb that fades pigmentation, evens skin tone, and restores a healthy natural glow.',
+  'orange peel': 'Natural source of citric acid and antioxidants that gently brightens, tightens pores, and refreshes skin.',
+  'saffron': 'Royal Kashmiri elixir rich in crocin to illuminate skin, diminish dark spots, and impart golden radiance.',
+  'rosehip': 'Cold-pressed botanical rich in omegas & natural retinoids to accelerate cellular repair and smooth fine lines.',
+}
+
+function getIngredientBenefit(ingredient: string): string {
+  const key = ingredient.trim().toLowerCase()
+  return INGREDIENT_BENEFITS[key] || 'Botanical & clinical active supporting healthy, radiant, balanced skin.'
+}
+
 export default function KitDetailPage() {
   const { addItem, openCart } = useCartStore()
   const { kit, products } = useAdminStore()
@@ -27,7 +54,7 @@ export default function KitDetailPage() {
   return (
     <div style={{ background: '#FAF7F2', minHeight: '100vh', color: '#2D241E', paddingTop: '4.8rem' }}>
       {/* ─── LAPTOP PROPORTIONED CONTAINER (1380PX WIDTH) ─── */}
-      <div style={{ maxWidth: '1380px', margin: '0 auto', padding: '1rem 2.5rem 3rem' }}>
+      <div className="kit-detail-container" style={{ maxWidth: '1380px', margin: '0 auto', padding: '1rem 2.5rem 3rem' }}>
         {/* ─── TOP BAR / BACK LINK ─── */}
         <div style={{ marginBottom: '1.2rem' }}>
           <Link
@@ -153,10 +180,10 @@ export default function KitDetailPage() {
                 background: '#FFFDF9',
                 borderRadius: '18px',
                 border: '1.5px solid rgba(218, 180, 120, 0.45)',
-                padding: '1.2rem 1.6rem',
+                padding: '1.35rem 1.6rem',
                 boxShadow: '0 6px 20px rgba(184, 147, 84, 0.07)',
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: 'flex-start',
                 gap: '1.75rem',
               }}
             >
@@ -238,39 +265,102 @@ export default function KitDetailPage() {
                   </div>
                 </div>
 
-                {/* Ingredients Box: Compact & Clear */}
+                {/* Ingredients & Benefits Breakdown: Each Ingredient Separate */}
                 <div
                   style={{
                     background: '#FAF7F2',
-                    borderRadius: '12px',
-                    padding: '0.75rem 1rem',
-                    border: '1px solid rgba(196, 164, 108, 0.2)',
+                    borderRadius: '14px',
+                    padding: '0.9rem 1.05rem',
+                    border: '1px solid rgba(196, 164, 108, 0.25)',
                   }}
                 >
                   <div
                     style={{
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '0.64rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.14em',
-                      textTransform: 'uppercase',
-                      color: '#5C4A42',
-                      marginBottom: '0.25rem',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      flexWrap: 'wrap',
+                      gap: '0.4rem',
+                      marginBottom: '0.65rem',
                     }}
                   >
-                    Ingredients:
+                    <span
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '0.66rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.14em',
+                        textTransform: 'uppercase',
+                        color: '#8C6718',
+                      }}
+                    >
+                      ✦ Key Ingredients & Their Benefits
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '0.64rem',
+                        color: '#8A7565',
+                        fontStyle: 'italic',
+                      }}
+                    >
+                      {product.ingredients.length} Pure Actives
+                    </span>
                   </div>
-                  <p
+
+                  <div
+                    className="kit-ingredients-grid"
                     style={{
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '0.76rem',
-                      color: '#6E5E56',
-                      lineHeight: 1.5,
-                      margin: 0,
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                      gap: '0.55rem',
                     }}
                   >
-                    {product.ingredients.join(', ')}
-                  </p>
+                    {product.ingredients.map((ing, idx) => {
+                      const isHero = product.heroActives?.includes(ing)
+                      return (
+                        <div
+                          key={idx}
+                          style={{
+                            background: isHero ? '#FCF7EA' : '#FFFDF9',
+                            border: isHero
+                              ? '1px solid rgba(196, 152, 46, 0.45)'
+                              : '1px solid rgba(196, 164, 108, 0.22)',
+                            borderRadius: '10px',
+                            padding: '0.55rem 0.75rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '0.2rem',
+                          }}
+                        >
+                          <div
+                            style={{
+                              fontFamily: 'Inter, sans-serif',
+                              fontSize: '0.74rem',
+                              fontWeight: 700,
+                              color: isHero ? '#785310' : '#241D19',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '0.35rem',
+                            }}
+                          >
+                            <span style={{ color: '#B89354', fontSize: '0.7rem' }}>{isHero ? '✦' : '•'}</span>
+                            <span>{ing}</span>
+                          </div>
+                          <div
+                            style={{
+                              fontFamily: 'Inter, sans-serif',
+                              fontSize: '0.71rem',
+                              color: '#5C4E46',
+                              lineHeight: 1.45,
+                            }}
+                          >
+                            {getIngredientBenefit(ing)}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
@@ -287,6 +377,18 @@ export default function KitDetailPage() {
           .kit-product-img {
             width: 100% !important;
             height: 220px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .kit-detail-container {
+            padding: 0.75rem 1rem 2.5rem !important;
+          }
+          .kit-product-card {
+            padding: 1rem !important;
+            gap: 1rem !important;
+          }
+          .kit-ingredients-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>
