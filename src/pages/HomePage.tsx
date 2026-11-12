@@ -2621,28 +2621,53 @@ function ProductGallery() {
   )
 }
 
-// ─── SECTION 4: LIQUID GOLD MOMENT ─────────────────
+// ─── SECTION 4: HOW TO USE THE KIT (DAILY RITUAL GUIDE) ─────────────────
 function LiquidGoldMoment() {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const ritualSteps = [
+    {
+      step: 'STEP 01',
+      timing: 'Morning & Night',
+      product: 'Face Cleanser',
+      subtitle: 'Purify & Prep',
+      instructions:
+        'Dampen your face with lukewarm water. Gently massage 1–2 pumps in upward circular motions for 45–60 seconds, then rinse clean and pat dry.',
+      dosage: '1–2 Pumps · 60 Sec',
+    },
+    {
+      step: 'STEP 02',
+      timing: 'Morning Ritual',
+      product: 'Day Serum',
+      subtitle: 'Illuminate & Shield',
+      instructions:
+        'Apply 2–3 drops onto clean, slightly damp skin across your face and neck. Let it absorb for a minute, then follow with broad-spectrum SPF.',
+      dosage: '2–3 Drops · AM',
+    },
+    {
+      step: 'STEP 03',
+      timing: 'Night Ritual',
+      product: 'Night Serum',
+      subtitle: 'Restore & Renew',
+      instructions:
+        'After evening cleansing, warm 3–4 drops between your fingertips and gently press into face and neck before sleep for deep overnight repair.',
+      dosage: '3–4 Drops · PM',
+    },
+  ]
 
   return (
     <section
-      ref={ref}
+      id="how-to-use"
       style={{
         position: 'relative',
-        minHeight: '100vh',
+        padding: 'clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 3rem)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        background: '#1A1410',
+        background: 'linear-gradient(180deg, #1A1410 0%, #241A13 55%, #1A1410 100%)',
       }}
     >
       {/* Background silk glitter image */}
-      <div style={{ position: 'absolute', inset: 0, opacity: 0.28, mixBlendMode: 'screen' }}>
+      <div style={{ position: 'absolute', inset: 0, opacity: 0.2, mixBlendMode: 'screen', pointerEvents: 'none' }}>
         <img
           src="/golden-glitter-luxury.png"
           alt="Golden Glitter Liquid Texture"
@@ -2650,166 +2675,261 @@ function LiquidGoldMoment() {
         />
       </div>
 
-      {/* Animated gradient orbs */}
-      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-        <motion.div
-          animate={{ x: ['-10%', '10%', '-10%'], y: ['-10%', '15%', '-10%'] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          style={{
-            position: 'absolute',
-            width: '800px',
-            height: '800px',
-            top: '-200px',
-            left: '-200px',
-            borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(196,164,108,0.2) 0%, transparent 70%)',
-            filter: 'blur(40px)',
-          }}
-        />
-        <motion.div
-          animate={{ x: ['10%', '-10%', '10%'], y: ['10%', '-15%', '10%'] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+      {/* Subtle ambient orbs */}
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+        <div
           style={{
             position: 'absolute',
             width: '600px',
             height: '600px',
-            bottom: '-100px',
-            right: '-100px',
+            top: '-180px',
+            left: '-180px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(217,195,160,0.15) 0%, transparent 70%)',
-            filter: 'blur(30px)',
+            background: 'radial-gradient(ellipse, rgba(196,164,108,0.16) 0%, transparent 70%)',
+            filter: 'blur(40px)',
           }}
         />
-        {/* Center glow */}
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '600px',
-          height: '300px',
-          background: 'radial-gradient(ellipse, rgba(196,164,108,0.08) 0%, transparent 70%)',
-          filter: 'blur(20px)',
-        }} />
-      </div>
-
-      {/* Horizontal lines */}
-      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        {[20, 40, 60, 80].map(top => (
-          <div key={top} style={{
+        <div
+          style={{
             position: 'absolute',
-            top: `${top}%`,
-            left: 0,
-            right: 0,
-            height: '1px',
-            background: 'linear-gradient(90deg, transparent, rgba(196,164,108,0.08), transparent)',
-          }} />
-        ))}
+            width: '500px',
+            height: '500px',
+            bottom: '-150px',
+            right: '-150px',
+            borderRadius: '50%',
+            background: 'radial-gradient(ellipse, rgba(217,195,160,0.14) 0%, transparent 70%)',
+            filter: 'blur(35px)',
+          }}
+        />
       </div>
 
       {/* Content */}
-      <motion.div
-        style={{ scale, opacity, position: 'relative', zIndex: 5, textAlign: 'center', padding: '0 2rem' }}
-      >
+      <div style={{ maxWidth: '1320px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 5 }}>
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          style={{ width: '60px', height: '1px', background: '#C4A46C', margin: '0 auto 2.5rem' }}
-        />
-
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '0.6rem',
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            color: '#C4A46C',
-            marginBottom: '2rem',
-          }}
+          transition={{ duration: 0.8 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(2.2rem, 4vw, 3.5rem)' }}
         >
-          For those who know
-        </motion.p>
-
-        {['YOUR RITUAL.', 'YOUR RADIANCE.', 'YOUR WORLD.'].map((line, i) => (
-          <div key={i} style={{ overflow: 'hidden' }}>
-            <motion.h2
-              initial={{ y: '110%' }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3 + i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+          <div style={{ width: '60px', height: '1px', background: '#C4A46C', margin: '0 auto 1.25rem' }} />
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.68rem',
+              fontWeight: 700,
+              letterSpacing: '0.26em',
+              textTransform: 'uppercase',
+              color: '#D4AF37',
+              marginBottom: '0.75rem',
+            }}
+          >
+            ✦ How To Use The Kit ✦
+          </p>
+          <h2
+            style={{
+              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)',
+              fontWeight: 400,
+              lineHeight: 1.08,
+              color: '#FAF0D8',
+              margin: '0 0 0.85rem 0',
+            }}
+          >
+            Your Three-Step{' '}
+            <em
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: 'clamp(2.5rem, 7vw, 8rem)',
-                fontWeight: i === 1 ? 700 : 300,
-                fontStyle: i === 1 ? 'italic' : 'normal',
-                lineHeight: 0.95,
-                color: i === 1 ? 'transparent' : '#EAD8B5',
-                background: i === 1 ? 'linear-gradient(135deg, #EAD8B5 0%, #C4A46C 50%, #8A6540 100%)' : 'none',
-                WebkitBackgroundClip: i === 1 ? 'text' : 'unset',
-                backgroundClip: i === 1 ? 'text' : 'unset',
-                WebkitTextFillColor: i === 1 ? 'transparent' : undefined,
-                letterSpacing: '-0.01em',
+                fontWeight: 600,
+                background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 50%, #C4982E 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
               }}
             >
-              {line}
-            </motion.h2>
-          </div>
-        ))}
+              Botanical Ritual
+            </em>
+          </h2>
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: 'clamp(0.85rem, 1.1vw, 0.96rem)',
+              lineHeight: 1.7,
+              color: 'rgba(234, 216, 181, 0.78)',
+              maxWidth: '580px',
+              margin: '0 auto',
+            }}
+          >
+            Follow this morning-to-night sequence with the Complete Skincare Kit for balanced, deeply nourished, and radiant skin.
+          </p>
+        </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+        {/* 3 Step Cards */}
+        <div
           style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '0.85rem',
-            lineHeight: 1.9,
-            color: 'rgba(217,195,160,0.6)',
-            maxWidth: '500px',
-            margin: '2.5rem auto 3rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
+            gap: '1.35rem',
+            marginBottom: '2.2rem',
           }}
         >
-          Designed for the discerning. Crafted for the extraordinary. Welcome to THE BEAUTYWOOD.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1 }}
-        >
-          <a href="#skincare-kits" style={{ textDecoration: 'none' }}>
-            <motion.button
-              whileHover={{ scale: 1.04, background: 'rgba(196,164,108,0.2)', borderColor: '#C4A46C' }}
+          {ritualSteps.map((item, idx) => (
+            <motion.div
+              key={item.step}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: idx * 0.12 }}
               style={{
-                padding: '1.1rem 3rem',
-                background: 'transparent',
-                border: '1px solid rgba(196,164,108,0.4)',
-                color: '#EAD8B5',
+                background: 'linear-gradient(155deg, rgba(48, 35, 25, 0.92) 0%, rgba(30, 21, 15, 0.96) 100%)',
+                border: '1px solid rgba(212, 175, 55, 0.35)',
+                borderRadius: '18px',
+                padding: '1.65rem 1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                boxShadow: '0 14px 36px rgba(0, 0, 0, 0.3)',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '1rem',
+                  gap: '0.5rem',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.64rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                    color: '#241811',
+                    background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 100%)',
+                    padding: '0.26rem 0.72rem',
+                    borderRadius: '20px',
+                  }}
+                >
+                  {item.step}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.66rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: '#D4AF37',
+                  }}
+                >
+                  {item.timing}
+                </span>
+              </div>
+
+              <h3
+                style={{
+                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontSize: '1.75rem',
+                  fontWeight: 700,
+                  color: '#FFF6E3',
+                  margin: '0 0 0.25rem 0',
+                  lineHeight: 1.1,
+                }}
+              >
+                {item.product}
+              </h3>
+
+              <div
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.72rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#C4A46C',
+                  marginBottom: '0.85rem',
+                }}
+              >
+                {item.subtitle}
+              </div>
+
+              <p
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.84rem',
+                  lineHeight: 1.65,
+                  color: 'rgba(245, 232, 206, 0.84)',
+                  margin: '0 0 1.25rem 0',
+                  flex: 1,
+                }}
+              >
+                {item.instructions}
+              </p>
+
+              <div
+                style={{
+                  paddingTop: '0.8rem',
+                  borderTop: '1px solid rgba(196, 164, 108, 0.2)',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.7rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: '#EAD8B5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                }}
+              >
+                <span style={{ color: '#D4AF37' }}>✦</span>
+                <span>Recommended: {item.dosage}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom Care Reminder & CTA */}
+        <div style={{ textAlign: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.76rem',
+              color: 'rgba(234, 216, 181, 0.72)',
+              marginBottom: '1.6rem',
+            }}
+          >
+            ✦ Care Tip: Perform a patch test before first use, and avoid direct sunlight immediately after application.
+          </p>
+
+          <Link to="/complete-skincare-kit" style={{ textDecoration: 'none' }}>
+            <motion.button
+              whileHover={{ scale: 1.04, boxShadow: '0 10px 28px rgba(212, 175, 55, 0.35)' }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                padding: '1rem 2.6rem',
+                background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 50%, #B88822 100%)',
+                border: 'none',
+                borderRadius: '35px',
+                color: '#241811',
                 fontFamily: 'Inter, sans-serif',
-                fontSize: '0.7rem',
-                letterSpacing: '0.22em',
+                fontSize: '0.74rem',
+                fontWeight: 700,
+                letterSpacing: '0.2em',
                 textTransform: 'uppercase',
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '1rem',
-                transition: 'all 0.4s ease',
+                gap: '0.85rem',
               }}
             >
-              <span>Begin Your Ritual</span>
-              <ArrowRight size={14} />
+              <span>Explore Complete Kit</span>
+              <ArrowRight size={15} />
             </motion.button>
-          </a>
-        </motion.div>
-      </motion.div>
+          </Link>
+        </div>
+      </div>
     </section>
   )
 }
