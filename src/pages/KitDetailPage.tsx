@@ -273,7 +273,7 @@ export default function KitDetailPage() {
                 }}
               >
                 <img
-                  src={product.image}
+                  src={product.image.includes('photo-1556228722-d9b32cb198bc') ? '/kits/face-cleanser.jpg' : product.image}
                   alt={product.name}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />

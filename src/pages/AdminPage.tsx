@@ -633,7 +633,7 @@ export default function AdminPage() {
                           }}
                           onError={(e) => {
                             ;(e.target as HTMLImageElement).src =
-                              'https://images.unsplash.com/photo-1556228722-d9b32cb198bc?w=800&q=80'
+                              '/kits/face-cleanser.jpg'
                           }}
                         />
                         <span style={{ fontSize: '0.7rem', color: '#6E5D4B' }}>Live Preview</span>

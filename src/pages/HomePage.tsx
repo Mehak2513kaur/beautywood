@@ -1091,7 +1091,7 @@ function SkincareKitsSection() {
                     }}
                   >
                     <img
-                      src="https://images.unsplash.com/photo-1556228722-d9b32cb198bc?w=600&q=80"
+                      src="/kits/face-cleanser.jpg"
                       alt="Face Cleanser"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
@@ -1260,7 +1260,7 @@ function SkincareKitsSection() {
                   }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1556228722-d9b32cb198bc?w=600&q=80"
+                    src="/kits/face-cleanser.jpg"
                     alt="Face Cleanser"
                     style={{ width: '56px', height: '56px', borderRadius: '10px', objectFit: 'cover' }}
                   />

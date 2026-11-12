@@ -74,7 +74,7 @@ const IMG = {
   perfume:      'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=800&q=80',
   candle:       'https://images.unsplash.com/photo-1603006905003-be475563bc59?w=800&q=80',
   gua_sha:      'https://images.unsplash.com/photo-1614159102467-c2018e7ead49?w=800&q=80',
-  cleanser:     'https://images.unsplash.com/photo-1556228722-d9b32cb198bc?w=800&q=80',
+  cleanser:     '/kits/face-cleanser.jpg',
 }
 
 export const products: Product[] = [
@@ -84,7 +84,7 @@ export const products: Product[] = [
     name: 'Face Cleanser',
     tagline: 'Gentle Botanical Purifier',
     price: 48,
-    image: 'https://images.unsplash.com/photo-1556228722-d9b32cb198bc?w=800&q=80',
+    image: '/kits/face-cleanser.jpg',
     category: 'cleansers',
     collection: 'botanical-skin',
     description: 'A silky, low-foaming botanical cleanser that gently lifts away daily impurities and pollutants while protecting the skin barrier.',

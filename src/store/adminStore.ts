@@ -131,7 +131,7 @@ export const defaultProducts: AdminProduct[] = [
     reviewCount: '142',
     texture: 'Silky, low-foaming botanical gel',
     skinGoal: 'Pore purification & barrier protection',
-    image: 'https://images.unsplash.com/photo-1556228722-d9b32cb198bc?w=800&q=80',
+    image: '/kits/face-cleanser.jpg',
     description: 'A silky, low-foaming botanical cleanser that gently lifts daily impurities, sunscreen, and excess sebum while preserving the vital moisture mantle.',
     ingredients: [
       'Glycolic Acid',
