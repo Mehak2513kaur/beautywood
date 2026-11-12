@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ShoppingBag } from 'lucide-react'
+import { ArrowLeft, ShoppingBag, AlertTriangle, Sun } from 'lucide-react'
 import { useCartStore } from '../store/cartStore'
 import { useAdminStore } from '../store/adminStore'
 import Footer from '../components/Footer'
@@ -437,6 +437,53 @@ export default function KitDetailPage() {
                         </div>
                       )
                     })}
+                  </div>
+                </div>
+
+                {/* Patch Test & Direct Sunlight Disclaimer */}
+                <div
+                  style={{
+                    marginTop: '0.85rem',
+                    background: 'linear-gradient(135deg, #F6E6C4 0%, #EED6A5 100%)',
+                    borderRadius: '12px',
+                    padding: '0.75rem 1rem',
+                    border: '1px solid rgba(156, 114, 21, 0.42)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.45rem',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.5rem',
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '0.72rem',
+                      lineHeight: 1.45,
+                      color: '#3B2618',
+                    }}
+                  >
+                    <AlertTriangle size={14} style={{ color: '#9C5B15', flexShrink: 0, marginTop: '2px' }} />
+                    <span>
+                      <strong style={{ color: '#24150B' }}>Patch Test Disclaimer:</strong> Our clients are deeply valued—to prevent any unexpected allergies or sensitivities, we strongly recommend performing a patch test before full use.
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.5rem',
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '0.72rem',
+                      lineHeight: 1.45,
+                      color: '#3B2618',
+                    }}
+                  >
+                    <Sun size={14} style={{ color: '#9C5B15', flexShrink: 0, marginTop: '2px' }} />
+                    <span>
+                      <strong style={{ color: '#24150B' }}>Sun Caution:</strong> Do not step into direct sunlight immediately after application; always follow with broad-spectrum sunscreen during the day.
+                    </span>
                   </div>
                 </div>
               </div>
