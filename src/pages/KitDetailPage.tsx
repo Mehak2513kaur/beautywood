@@ -252,64 +252,47 @@ export default function KitDetailPage() {
                 />
               </div>
 
-              {/* Product Details: Name, Price, Ingredients, Action */}
+              {/* Product Details: Step, Bold Name, Ingredients & Benefits */}
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                {/* Top Header: Step badge + Bold Product Name on left, Price on right */}
+                {/* Top Header: Step badge + Bold Product Name */}
                 <div
                   style={{
                     display: 'flex',
-                    justifyContent: 'space-between',
+                    flexDirection: 'column',
                     alignItems: 'flex-start',
+                    gap: '0.45rem',
                     marginBottom: '0.85rem',
-                    flexWrap: 'wrap',
-                    gap: '0.75rem',
                   }}
                 >
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.45rem' }}>
-                    <span
-                      style={{
-                        fontFamily: 'Inter, sans-serif',
-                        fontSize: '0.62rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.14em',
-                        textTransform: 'uppercase',
-                        color: '#F3D88C',
-                        background: '#3B2618',
-                        padding: '0.26rem 0.72rem',
-                        borderRadius: '8px',
-                        border: '1px solid rgba(218, 178, 86, 0.45)',
-                      }}
-                    >
-                      {product.step} · {product.quantity}
-                    </span>
-                    <h2
-                      style={{
-                        fontFamily: 'Cormorant Garamond, Georgia, serif',
-                        fontSize: 'clamp(1.9rem, 2.5vw, 2.35rem)',
-                        fontWeight: 700,
-                        color: '#1A130E',
-                        lineHeight: 1.05,
-                        letterSpacing: '-0.01em',
-                        margin: 0,
-                      }}
-                    >
-                      {product.name}
-                    </h2>
-                  </div>
-
-                  <div>
-                    <span
-                      style={{
-                        fontFamily: 'Cormorant Garamond, Georgia, serif',
-                        fontSize: '1.85rem',
-                        fontWeight: 700,
-                        color: '#B89354',
-                        lineHeight: 1,
-                      }}
-                    >
-                      ${product.price}
-                    </span>
-                  </div>
+                  <span
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '0.62rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.14em',
+                      textTransform: 'uppercase',
+                      color: '#F3D88C',
+                      background: '#3B2618',
+                      padding: '0.26rem 0.72rem',
+                      borderRadius: '8px',
+                      border: '1px solid rgba(218, 178, 86, 0.45)',
+                    }}
+                  >
+                    {product.step} · {product.quantity}
+                  </span>
+                  <h2
+                    style={{
+                      fontFamily: 'Cormorant Garamond, Georgia, serif',
+                      fontSize: 'clamp(1.9rem, 2.5vw, 2.35rem)',
+                      fontWeight: 700,
+                      color: '#1A130E',
+                      lineHeight: 1.05,
+                      letterSpacing: '-0.01em',
+                      margin: 0,
+                    }}
+                  >
+                    {product.name}
+                  </h2>
                 </div>
 
                 {/* Ingredients & Benefits Breakdown: Each Ingredient Separate */}
