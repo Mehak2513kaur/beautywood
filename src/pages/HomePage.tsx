@@ -2623,36 +2623,84 @@ function ProductGallery() {
 
 // ─── SECTION 4: HOW TO USE THE KIT (DAILY RITUAL GUIDE) ─────────────────
 function LiquidGoldMoment() {
-  const ritualSteps = [
+  const productRituals = [
     {
-      step: 'STEP 01',
-      timing: 'Morning & Night',
+      badge: 'Product 01 · Morning & Night',
       product: 'Face Cleanser',
       subtitle: 'Purify & Prep',
-      image: '/ritual/step1-cleanser.jpg',
-      instructions:
-        'Dampen your face with lukewarm water. Gently massage 1–2 pumps in upward circular motions for 45–60 seconds, then rinse clean and pat dry.',
-      dosage: '1–2 Pumps · 60 Sec',
+      dosage: '1–2 Pumps · 45–60 Sec',
+      steps: [
+        {
+          step: 'Step 01',
+          title: 'Dampen Face',
+          image: '/ritual/cleanser-step1.jpg',
+          text: 'Wet your face with lukewarm water to gently open pores and prepare your skin for cleansing.',
+        },
+        {
+          step: 'Step 02',
+          title: 'Massage Gently',
+          image: '/ritual/cleanser-step2.jpg',
+          text: 'Pump 1–2 drops onto clean palms and massage in upward circular motions for 45–60 seconds.',
+        },
+        {
+          step: 'Step 03',
+          title: 'Rinse & Pat Dry',
+          image: '/ritual/cleanser-step3.jpg',
+          text: 'Rinse thoroughly with cool or lukewarm water and gently pat dry with a soft, clean towel.',
+        },
+      ],
     },
     {
-      step: 'STEP 02',
-      timing: 'Morning Ritual',
+      badge: 'Product 02 · Morning Ritual',
       product: 'Day Serum',
       subtitle: 'Illuminate & Shield',
-      image: '/ritual/step2-day-serum.jpg',
-      instructions:
-        'Apply 2–3 drops onto clean, slightly damp skin across your face and neck. Let it absorb for a minute, then follow with broad-spectrum SPF.',
       dosage: '2–3 Drops · AM',
+      steps: [
+        {
+          step: 'Step 01',
+          title: 'Dispense 2–3 Drops',
+          image: '/ritual/day-step1.jpg',
+          text: 'Use the glass dropper to place 2–3 drops of Day Serum onto your clean fingertips.',
+        },
+        {
+          step: 'Step 02',
+          title: 'Press & Sweep',
+          image: '/ritual/day-step2.jpg',
+          text: 'Gently dot and sweep the serum upward across your face and neck on slightly damp skin.',
+        },
+        {
+          step: 'Step 03',
+          title: 'Seal With SPF',
+          image: '/ritual/day-step3.jpg',
+          text: 'Allow 60 seconds to absorb completely, then follow with broad-spectrum sunscreen.',
+        },
+      ],
     },
     {
-      step: 'STEP 03',
-      timing: 'Night Ritual',
+      badge: 'Product 03 · Night Ritual',
       product: 'Night Serum',
       subtitle: 'Restore & Renew',
-      image: '/ritual/step3-night-serum.jpg',
-      instructions:
-        'After evening cleansing, warm 3–4 drops between your fingertips and gently press into face and neck before sleep for deep overnight repair.',
       dosage: '3–4 Drops · PM',
+      steps: [
+        {
+          step: 'Step 01',
+          title: 'Warm 3–4 Drops',
+          image: '/ritual/night-step1.jpg',
+          text: 'After evening cleansing, draw 3–4 drops and warm the botanical elixir between your fingertips.',
+        },
+        {
+          step: 'Step 02',
+          title: 'Upward Facial Massage',
+          image: '/ritual/night-step2.jpg',
+          text: 'Press and glide gently upward along your cheeks, jawline, and neck to boost absorption.',
+        },
+        {
+          step: 'Step 03',
+          title: 'Overnight Renewal',
+          image: '/ritual/night-step3.jpg',
+          text: 'Leave on overnight so concentrated botanicals deeply repair and nourish while you rest.',
+        },
+      ],
     },
   ]
 
@@ -2714,7 +2762,7 @@ function LiquidGoldMoment() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(2.2rem, 4vw, 3.5rem)' }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(2.4rem, 4.5vw, 3.8rem)' }}
         >
           <div style={{ width: '60px', height: '1px', background: '#C4A46C', margin: '0 auto 1.25rem' }} />
           <p
@@ -2740,7 +2788,7 @@ function LiquidGoldMoment() {
               margin: '0 0 0.85rem 0',
             }}
           >
-            Your Three-Step{' '}
+            Step-by-Step{' '}
             <em
               style={{
                 fontWeight: 600,
@@ -2759,172 +2807,201 @@ function LiquidGoldMoment() {
               fontSize: 'clamp(0.85rem, 1.1vw, 0.96rem)',
               lineHeight: 1.7,
               color: 'rgba(234, 216, 181, 0.78)',
-              maxWidth: '580px',
+              maxWidth: '600px',
               margin: '0 auto',
             }}
           >
-            Follow this morning-to-night sequence with the Complete Skincare Kit for balanced, deeply nourished, and radiant skin.
+            Each formula in the Complete Skincare Kit has its own guided 3-step application ritual for visibly luminous, balanced skin.
           </p>
         </motion.div>
 
-        {/* 3 Step Cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-            gap: '1.35rem',
-            marginBottom: '2.2rem',
-          }}
-        >
-          {ritualSteps.map((item, idx) => (
+        {/* Product-by-Product Step Cards */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2.4rem, 4vw, 3.4rem)', marginBottom: '2.6rem' }}>
+          {productRituals.map((ritual, pIdx) => (
             <motion.div
-              key={item.step}
+              key={ritual.product}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -4, borderColor: 'rgba(221, 179, 75, 0.7)' }}
               viewport={{ once: true }}
-              transition={{ duration: 0.65, delay: idx * 0.12 }}
+              transition={{ duration: 0.7, delay: pIdx * 0.08 }}
               style={{
-                background: 'linear-gradient(155deg, rgba(48, 35, 25, 0.94) 0%, rgba(28, 20, 14, 0.98) 100%)',
-                border: '1.5px solid rgba(212, 175, 55, 0.42)',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: '0 18px 42px rgba(0, 0, 0, 0.36)',
+                background: 'rgba(32, 23, 17, 0.62)',
+                border: '1px solid rgba(212, 175, 55, 0.28)',
+                borderRadius: '24px',
+                padding: 'clamp(1.35rem, 2.8vw, 2.2rem)',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.34)',
               }}
             >
-              {/* Full-Bleed Editorial Step Photograph */}
-              <div style={{ position: 'relative', width: '100%', height: '225px', overflow: 'hidden', background: '#241811' }}>
-                <img
-                  src={item.image}
-                  alt={`${item.product} — ${item.subtitle}`}
-                  loading="lazy"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                  }}
-                />
-                {/* Warm Dark Luxury Scrim for Legible Floating Badges */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(20, 14, 10, 0.12) 0%, rgba(24, 17, 12, 0.88) 100%)',
-                    pointerEvents: 'none',
-                  }}
-                />
-                {/* Floating Step Badge & Timing Pill */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: '0.9rem',
-                    left: '1.15rem',
-                    right: '1.15rem',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                  }}
-                >
-                  <span
+              {/* Product Header Strip */}
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '0.85rem',
+                  paddingBottom: '1.15rem',
+                  marginBottom: '1.35rem',
+                  borderBottom: '1px solid rgba(212, 175, 55, 0.22)',
+                }}
+              >
+                <div>
+                  <div
                     style={{
                       fontFamily: 'Inter, sans-serif',
                       fontSize: '0.64rem',
                       fontWeight: 700,
-                      letterSpacing: '0.16em',
+                      letterSpacing: '0.2em',
                       textTransform: 'uppercase',
-                      color: '#241811',
-                      background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 100%)',
-                      padding: '0.28rem 0.78rem',
-                      borderRadius: '20px',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.28)',
+                      color: '#D4AF37',
+                      marginBottom: '0.3rem',
                     }}
                   >
-                    {item.step}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '0.64rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.12em',
-                      textTransform: 'uppercase',
-                      color: '#F3DC9C',
-                      background: 'rgba(26, 20, 16, 0.72)',
-                      backdropFilter: 'blur(6px)',
-                      padding: '0.26rem 0.65rem',
-                      borderRadius: '16px',
-                      border: '1px solid rgba(212, 175, 55, 0.35)',
-                    }}
-                  >
-                    {item.timing}
-                  </span>
+                    {ritual.badge}
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', flexWrap: 'wrap' }}>
+                    <h3
+                      style={{
+                        fontFamily: 'Cormorant Garamond, Georgia, serif',
+                        fontSize: 'clamp(1.75rem, 2.6vw, 2.3rem)',
+                        fontWeight: 700,
+                        color: '#FFF6E3',
+                        margin: 0,
+                        lineHeight: 1.05,
+                      }}
+                    >
+                      {ritual.product}
+                    </h3>
+                    <span
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '0.74rem',
+                        fontWeight: 500,
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
+                        color: 'rgba(234, 216, 181, 0.72)',
+                      }}
+                    >
+                      — {ritual.subtitle}
+                    </span>
+                  </div>
                 </div>
+
+                <span
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.68rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: '#F3DC9C',
+                    background: 'rgba(212, 175, 55, 0.14)',
+                    border: '1px solid rgba(212, 175, 55, 0.38)',
+                    padding: '0.38rem 0.9rem',
+                    borderRadius: '20px',
+                  }}
+                >
+                  ✦ {ritual.dosage}
+                </span>
               </div>
 
-              {/* Card Editorial Body */}
-              <div style={{ padding: '1.4rem 1.5rem 1.55rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                <h3
-                  style={{
-                    fontFamily: 'Cormorant Garamond, Georgia, serif',
-                    fontSize: '1.8rem',
-                    fontWeight: 700,
-                    color: '#FFF6E3',
-                    margin: '0 0 0.22rem 0',
-                    lineHeight: 1.08,
-                  }}
-                >
-                  {item.product}
-                </h3>
+              {/* 3 Individual Step Cards for this Product */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                  gap: '1.25rem',
+                }}
+              >
+                {ritual.steps.map((s, sIdx) => (
+                  <motion.div
+                    key={s.step}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -4, borderColor: 'rgba(221, 179, 75, 0.72)' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.55, delay: sIdx * 0.1 }}
+                    style={{
+                      background: 'linear-gradient(155deg, rgba(48, 35, 25, 0.94) 0%, rgba(26, 19, 13, 0.98) 100%)',
+                      border: '1.5px solid rgba(212, 175, 55, 0.36)',
+                      borderRadius: '18px',
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      boxShadow: '0 14px 34px rgba(0, 0, 0, 0.3)',
+                    }}
+                  >
+                    {/* Step-Specific Photograph */}
+                    <div style={{ position: 'relative', width: '100%', height: '200px', overflow: 'hidden', background: '#241811' }}>
+                      <img
+                        src={s.image}
+                        alt={`${ritual.product} ${s.step}: ${s.title}`}
+                        loading="lazy"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'center 25%',
+                          display: 'block',
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: 'absolute',
+                          inset: 0,
+                          background: 'linear-gradient(180deg, rgba(20, 14, 10, 0.08) 0%, rgba(24, 17, 12, 0.82) 100%)',
+                          pointerEvents: 'none',
+                        }}
+                      />
+                      <span
+                        style={{
+                          position: 'absolute',
+                          bottom: '0.8rem',
+                          left: '1rem',
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: '0.62rem',
+                          fontWeight: 700,
+                          letterSpacing: '0.16em',
+                          textTransform: 'uppercase',
+                          color: '#241811',
+                          background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 100%)',
+                          padding: '0.26rem 0.75rem',
+                          borderRadius: '20px',
+                          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.28)',
+                        }}
+                      >
+                        {s.step}
+                      </span>
+                    </div>
 
-                <div
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    color: '#D4AF37',
-                    marginBottom: '0.85rem',
-                  }}
-                >
-                  {item.subtitle}
-                </div>
-
-                <p
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.84rem',
-                    lineHeight: 1.65,
-                    color: 'rgba(245, 232, 206, 0.86)',
-                    margin: '0 0 1.25rem 0',
-                    flex: 1,
-                  }}
-                >
-                  {item.instructions}
-                </p>
-
-                <div
-                  style={{
-                    paddingTop: '0.85rem',
-                    borderTop: '1px solid rgba(196, 164, 108, 0.24)',
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: '#EAD8B5',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.45rem',
-                  }}
-                >
-                  <span style={{ color: '#D4AF37' }}>✦</span>
-                  <span>Recommended: {item.dosage}</span>
-                </div>
+                    {/* Step Card Body */}
+                    <div style={{ padding: '1.15rem 1.25rem 1.35rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                      <h4
+                        style={{
+                          fontFamily: 'Cormorant Garamond, Georgia, serif',
+                          fontSize: '1.45rem',
+                          fontWeight: 700,
+                          color: '#FFF6E3',
+                          margin: '0 0 0.45rem 0',
+                          lineHeight: 1.12,
+                        }}
+                      >
+                        {s.title}
+                      </h4>
+                      <p
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: '0.82rem',
+                          lineHeight: 1.6,
+                          color: 'rgba(245, 232, 206, 0.85)',
+                          margin: 0,
+                        }}
+                      >
+                        {s.text}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           ))}
