@@ -33,6 +33,33 @@ function getIngredientBenefit(ingredient: string): string {
   return INGREDIENT_BENEFITS[key] || 'Botanical & clinical active supporting healthy, radiant, balanced skin.'
 }
 
+const INGREDIENT_IMAGES: Record<string, string> = {
+  'glycolic acid': '/ingredients/glycolic-acid.jpg',
+  'vitamin c': '/ingredients/vitamin-c.jpg',
+  'papaya extract': '/ingredients/papaya.jpg',
+  'tulsi extract': '/ingredients/tulsi.jpg',
+  'aloe extract': '/ingredients/aloe.jpg',
+  'neem extract': '/ingredients/neem.jpg',
+  'panthenol': '/ingredients/panthenol.jpg',
+  'niacinamide': '/ingredients/niacinamide.jpg',
+  'melazero': '/ingredients/melazero.jpg',
+  'pro col one+': '/ingredients/pro-col-one.jpg',
+  'caffeine': '/ingredients/caffeine.png',
+  'pro vitamin b5': '/ingredients/panthenol.jpg',
+  'vitamin e': '/ingredients/vitamin-e.jpg',
+  'hyaluronic acid': '/ingredients/hyaluronic-acid.jpg',
+  'neem': '/ingredients/neem.jpg',
+  'manjishta': '/ingredients/manjishta.jpg',
+  'orange peel': '/ingredients/orange-peel.jpg',
+  'saffron': '/ingredients/saffron.jpg',
+  'rosehip': '/ingredients/rosehip.jpg',
+}
+
+function getIngredientImage(ingredient: string): string {
+  const key = ingredient.trim().toLowerCase()
+  return INGREDIENT_IMAGES[key] || '/ingredients/panthenol.jpg'
+}
+
 export default function KitDetailPage() {
   const { addItem, openCart } = useCartStore()
   const { kit, products } = useAdminStore()
@@ -358,37 +385,54 @@ export default function KitDetailPage() {
                             border: isHero
                               ? '1px solid rgba(184, 136, 34, 0.55)'
                               : '1px solid rgba(196, 152, 46, 0.28)',
-                            borderRadius: '10px',
-                            padding: '0.6rem 0.8rem',
+                            borderRadius: '11px',
+                            padding: '0.55rem 0.75rem',
                             display: 'flex',
-                            flexDirection: 'column',
-                            gap: '0.22rem',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            gap: '0.7rem',
                             boxShadow: isHero ? '0 2px 8px rgba(184, 136, 34, 0.12)' : 'none',
                           }}
                         >
-                          <div
+                          <img
+                            src={getIngredientImage(ing)}
+                            alt={ing}
+                            loading="lazy"
                             style={{
-                              fontFamily: 'Inter, sans-serif',
-                              fontSize: '0.74rem',
-                              fontWeight: 700,
-                              color: isHero ? '#785310' : '#241D19',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '0.35rem',
+                              width: '42px',
+                              height: '42px',
+                              borderRadius: '9px',
+                              objectFit: 'cover',
+                              flexShrink: 0,
+                              border: '1px solid rgba(184, 136, 34, 0.45)',
+                              background: '#EFE0C0',
                             }}
-                          >
-                            <span style={{ color: '#B89354', fontSize: '0.7rem' }}>{isHero ? '✦' : '•'}</span>
-                            <span>{ing}</span>
-                          </div>
-                          <div
-                            style={{
-                              fontFamily: 'Inter, sans-serif',
-                              fontSize: '0.71rem',
-                              color: '#5C4E46',
-                              lineHeight: 1.45,
-                            }}
-                          >
-                            {getIngredientBenefit(ing)}
+                          />
+                          <div style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', gap: '0.18rem' }}>
+                            <div
+                              style={{
+                                fontFamily: 'Inter, sans-serif',
+                                fontSize: '0.75rem',
+                                fontWeight: 700,
+                                color: isHero ? '#785310' : '#241D19',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.32rem',
+                              }}
+                            >
+                              <span style={{ color: '#B89354', fontSize: '0.68rem' }}>{isHero ? '✦' : '•'}</span>
+                              <span>{ing}</span>
+                            </div>
+                            <div
+                              style={{
+                                fontFamily: 'Inter, sans-serif',
+                                fontSize: '0.7rem',
+                                color: '#5C4E46',
+                                lineHeight: 1.4,
+                              }}
+                            >
+                              {getIngredientBenefit(ing)}
+                            </div>
                           </div>
                         </div>
                       )
