@@ -209,28 +209,28 @@ export default function KitDetailPage() {
 
               {/* Product Details: Name, Price, Ingredients, Action */}
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                {/* Top Header: Step & Name on left, Price & Add Button on right */}
+                {/* Top Header: Step badge + Bold Product Name on left, Price on right */}
                 <div
                   style={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: '0.65rem',
+                    alignItems: 'flex-start',
+                    marginBottom: '0.85rem',
                     flexWrap: 'wrap',
                     gap: '0.75rem',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.4rem' }}>
                     <span
                       style={{
                         fontFamily: 'Inter, sans-serif',
-                        fontSize: '0.6rem',
+                        fontSize: '0.62rem',
                         fontWeight: 700,
                         letterSpacing: '0.14em',
                         textTransform: 'uppercase',
-                        color: '#B89354',
-                        background: 'rgba(196, 164, 108, 0.14)',
-                        padding: '0.2rem 0.6rem',
+                        color: '#9C7215',
+                        background: 'rgba(196, 164, 108, 0.16)',
+                        padding: '0.24rem 0.65rem',
                         borderRadius: '8px',
                       }}
                     >
@@ -239,10 +239,11 @@ export default function KitDetailPage() {
                     <h2
                       style={{
                         fontFamily: 'Cormorant Garamond, Georgia, serif',
-                        fontSize: '1.75rem',
-                        fontWeight: 600,
-                        color: '#241D19',
-                        lineHeight: 1,
+                        fontSize: 'clamp(1.9rem, 2.5vw, 2.35rem)',
+                        fontWeight: 700,
+                        color: '#1A130E',
+                        lineHeight: 1.05,
+                        letterSpacing: '-0.01em',
                         margin: 0,
                       }}
                     >
@@ -254,8 +255,8 @@ export default function KitDetailPage() {
                     <span
                       style={{
                         fontFamily: 'Cormorant Garamond, Georgia, serif',
-                        fontSize: '1.75rem',
-                        fontWeight: 600,
+                        fontSize: '1.85rem',
+                        fontWeight: 700,
                         color: '#B89354',
                         lineHeight: 1,
                       }}
