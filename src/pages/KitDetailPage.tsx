@@ -54,7 +54,7 @@ export default function KitDetailPage() {
   return (
     <div
       style={{
-        background: 'linear-gradient(180deg, #FBF4E4 0%, #F5E6C8 48%, #EFE0BE 100%)',
+        background: 'linear-gradient(180deg, #EFE0C0 0%, #E8D1A7 50%, #DFC391 100%)',
         minHeight: '100vh',
         color: '#2D241E',
         paddingTop: '4.8rem',
@@ -62,15 +62,16 @@ export default function KitDetailPage() {
         overflow: 'hidden',
       }}
     >
-      {/* Subtle Golden Ambient Glows matching Beautywood Theme */}
+      {/* Architectural Golden Corner Glows matching Beautywood Theme */}
       <div
         style={{
           position: 'absolute',
-          top: '-80px',
-          right: '-80px',
-          width: '420px',
-          height: '420px',
-          background: 'radial-gradient(circle, rgba(221, 179, 75, 0.22) 0%, transparent 70%)',
+          top: 0,
+          right: 0,
+          width: 'clamp(180px, 22vw, 320px)',
+          height: 'clamp(180px, 22vw, 320px)',
+          background: 'linear-gradient(135deg, rgba(236, 204, 114, 0.45) 0%, rgba(196, 152, 46, 0.28) 100%)',
+          borderBottomLeftRadius: '100%',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -78,11 +79,12 @@ export default function KitDetailPage() {
       <div
         style={{
           position: 'absolute',
-          bottom: '80px',
-          left: '-100px',
-          width: '380px',
-          height: '380px',
-          background: 'radial-gradient(circle, rgba(196, 152, 46, 0.18) 0%, transparent 70%)',
+          bottom: 0,
+          left: 0,
+          width: 'clamp(150px, 18vw, 260px)',
+          height: 'clamp(150px, 18vw, 260px)',
+          background: 'linear-gradient(135deg, rgba(221, 179, 75, 0.35) 0%, rgba(196, 152, 46, 0.2) 100%)',
+          borderTopRightRadius: '100%',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -91,7 +93,7 @@ export default function KitDetailPage() {
       {/* ─── LAPTOP PROPORTIONED CONTAINER (1380PX WIDTH) ─── */}
       <div className="kit-detail-container" style={{ maxWidth: '1380px', margin: '0 auto', padding: '1rem 2.5rem 3rem', position: 'relative', zIndex: 1 }}>
         {/* ─── TOP BAR / BACK LINK ─── */}
-        <div style={{ marginBottom: '1.2rem' }}>
+        <div style={{ marginBottom: '1rem' }}>
           <Link
             to="/"
             style={{
@@ -100,12 +102,16 @@ export default function KitDetailPage() {
               gap: '0.45rem',
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.72rem',
-              fontWeight: 600,
+              fontWeight: 700,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#6E5538',
+              color: '#4A3220',
               textDecoration: 'none',
-              transition: 'color 0.2s',
+              background: 'rgba(255, 250, 238, 0.72)',
+              padding: '0.42rem 0.9rem',
+              borderRadius: '20px',
+              border: '1px solid rgba(184, 136, 34, 0.4)',
+              transition: 'all 0.2s',
             }}
           >
             <ArrowLeft size={15} />
@@ -113,7 +119,7 @@ export default function KitDetailPage() {
           </Link>
         </div>
 
-        {/* ─── SLEEK KIT HEADER BAR ─── */}
+        {/* ─── TAALI WOOD & LIQUID GOLD KIT HEADER CARD ─── */}
         <div
           style={{
             display: 'flex',
@@ -121,8 +127,11 @@ export default function KitDetailPage() {
             alignItems: 'center',
             flexWrap: 'wrap',
             gap: '1.25rem',
-            paddingBottom: '1.4rem',
-            borderBottom: '1.5px solid rgba(196, 152, 46, 0.38)',
+            padding: '1.6rem 2rem',
+            background: 'linear-gradient(135deg, #2D1F16 0%, #442E20 55%, #2B1C13 100%)',
+            borderRadius: '22px',
+            border: '1.5px solid rgba(221, 179, 75, 0.55)',
+            boxShadow: '0 14px 36px rgba(45, 31, 22, 0.22)',
             marginBottom: '1.8rem',
           }}
         >
@@ -134,8 +143,8 @@ export default function KitDetailPage() {
                 fontWeight: 700,
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
-                color: '#B89354',
-                marginBottom: '0.35rem',
+                color: '#E8C46A',
+                marginBottom: '0.4rem',
               }}
             >
               ✦ {kit.tagline || 'Curated 3-Piece System'} ✦
@@ -143,17 +152,17 @@ export default function KitDetailPage() {
             <h1
               style={{
                 fontFamily: 'Cormorant Garamond, Georgia, serif',
-                fontSize: 'clamp(2rem, 3.2vw, 2.8rem)',
-                fontWeight: 500,
-                color: '#241D19',
-                lineHeight: 1.1,
+                fontSize: 'clamp(2rem, 3.2vw, 2.85rem)',
+                fontWeight: 600,
+                color: '#FFF8EA',
+                lineHeight: 1.08,
                 margin: 0,
-                marginBottom: '0.25rem',
+                marginBottom: '0.35rem',
               }}
             >
               {kit.name}
             </h1>
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.85rem', color: '#706056', margin: 0 }}>
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.86rem', color: '#E3D3B7', margin: 0 }}>
               {kit.subtitle}
             </p>
           </div>
@@ -164,27 +173,27 @@ export default function KitDetailPage() {
               <div
                 style={{
                   fontFamily: 'Cormorant Garamond, Georgia, serif',
-                  fontSize: '2.2rem',
-                  fontWeight: 600,
-                  color: '#241D19',
+                  fontSize: '2.3rem',
+                  fontWeight: 700,
+                  color: '#F3D88C',
                   lineHeight: 1,
                 }}
               >
                 ${kit.price}
               </div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', color: '#2E7D32', fontWeight: 600 }}>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', color: '#A5D6A7', fontWeight: 600, marginTop: '0.2rem' }}>
                 {kit.badge}
               </div>
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.02, boxShadow: '0 8px 25px rgba(196, 164, 108, 0.45)' }}
+              whileHover={{ scale: 1.02, boxShadow: '0 8px 25px rgba(221, 179, 75, 0.45)' }}
               whileTap={{ scale: 0.98 }}
               onClick={handleAddKit}
               style={{
-                padding: '0.85rem 2rem',
-                background: 'linear-gradient(135deg, #EAD8B5 0%, #C4A46C 50%, #B89354 100%)',
-                color: '#241D19',
+                padding: '0.9rem 2.1rem',
+                background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 50%, #B88822 100%)',
+                color: '#241811',
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '0.74rem',
                 fontWeight: 700,
@@ -196,7 +205,7 @@ export default function KitDetailPage() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.55rem',
-                boxShadow: '0 4px 18px rgba(196, 164, 108, 0.35)',
+                boxShadow: '0 6px 20px rgba(0, 0, 0, 0.25)',
               }}
             >
               <ShoppingBag size={15} />
@@ -212,11 +221,11 @@ export default function KitDetailPage() {
               key={product.id}
               className="kit-product-card"
               style={{
-                background: 'linear-gradient(145deg, #FFF9EC 0%, #F8EBD0 100%)',
+                background: 'linear-gradient(145deg, #FFFDF6 0%, #F7E9CC 100%)',
                 borderRadius: '20px',
-                border: '1.5px solid rgba(196, 152, 46, 0.45)',
-                padding: '1.4rem 1.65rem',
-                boxShadow: '0 10px 30px rgba(168, 124, 29, 0.12)',
+                border: '1.5px solid rgba(184, 136, 34, 0.5)',
+                padding: '1.45rem 1.7rem',
+                boxShadow: '0 12px 32px rgba(92, 61, 39, 0.12)',
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: '1.75rem',
@@ -231,9 +240,9 @@ export default function KitDetailPage() {
                   flexShrink: 0,
                   borderRadius: '14px',
                   overflow: 'hidden',
-                  background: '#F4E4C1',
-                  border: '1.5px solid rgba(196, 152, 46, 0.4)',
-                  boxShadow: '0 6px 18px rgba(140, 103, 24, 0.14)',
+                  background: '#EED9AE',
+                  border: '2px solid rgba(184, 136, 34, 0.45)',
+                  boxShadow: '0 6px 18px rgba(92, 61, 39, 0.16)',
                 }}
               >
                 <img
@@ -256,7 +265,7 @@ export default function KitDetailPage() {
                     gap: '0.75rem',
                   }}
                 >
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.4rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.45rem' }}>
                     <span
                       style={{
                         fontFamily: 'Inter, sans-serif',
@@ -264,10 +273,11 @@ export default function KitDetailPage() {
                         fontWeight: 700,
                         letterSpacing: '0.14em',
                         textTransform: 'uppercase',
-                        color: '#9C7215',
-                        background: 'rgba(196, 164, 108, 0.16)',
-                        padding: '0.24rem 0.65rem',
+                        color: '#F3D88C',
+                        background: '#3B2618',
+                        padding: '0.26rem 0.72rem',
                         borderRadius: '8px',
+                        border: '1px solid rgba(218, 178, 86, 0.45)',
                       }}
                     >
                       {product.step} · {product.quantity}
