@@ -2629,6 +2629,7 @@ function LiquidGoldMoment() {
       timing: 'Morning & Night',
       product: 'Face Cleanser',
       subtitle: 'Purify & Prep',
+      image: '/ritual/step1-cleanser.jpg',
       instructions:
         'Dampen your face with lukewarm water. Gently massage 1–2 pumps in upward circular motions for 45–60 seconds, then rinse clean and pat dry.',
       dosage: '1–2 Pumps · 60 Sec',
@@ -2638,6 +2639,7 @@ function LiquidGoldMoment() {
       timing: 'Morning Ritual',
       product: 'Day Serum',
       subtitle: 'Illuminate & Shield',
+      image: '/ritual/step2-day-serum.jpg',
       instructions:
         'Apply 2–3 drops onto clean, slightly damp skin across your face and neck. Let it absorb for a minute, then follow with broad-spectrum SPF.',
       dosage: '2–3 Drops · AM',
@@ -2647,6 +2649,7 @@ function LiquidGoldMoment() {
       timing: 'Night Ritual',
       product: 'Night Serum',
       subtitle: 'Restore & Renew',
+      image: '/ritual/step3-night-serum.jpg',
       instructions:
         'After evening cleansing, warm 3–4 drops between your fingertips and gently press into face and neck before sleep for deep overnight repair.',
       dosage: '3–4 Drops · PM',
@@ -2778,113 +2781,150 @@ function LiquidGoldMoment() {
               key={item.step}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4, borderColor: 'rgba(221, 179, 75, 0.7)' }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: idx * 0.12 }}
+              transition={{ duration: 0.65, delay: idx * 0.12 }}
               style={{
-                background: 'linear-gradient(155deg, rgba(48, 35, 25, 0.92) 0%, rgba(30, 21, 15, 0.96) 100%)',
-                border: '1px solid rgba(212, 175, 55, 0.35)',
-                borderRadius: '18px',
-                padding: '1.65rem 1.5rem',
+                background: 'linear-gradient(155deg, rgba(48, 35, 25, 0.94) 0%, rgba(28, 20, 14, 0.98) 100%)',
+                border: '1.5px solid rgba(212, 175, 55, 0.42)',
+                borderRadius: '20px',
+                overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 14px 36px rgba(0, 0, 0, 0.3)',
+                boxShadow: '0 18px 42px rgba(0, 0, 0, 0.36)',
               }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '1rem',
-                  gap: '0.5rem',
-                }}
-              >
-                <span
+              {/* Full-Bleed Editorial Step Photograph */}
+              <div style={{ position: 'relative', width: '100%', height: '225px', overflow: 'hidden', background: '#241811' }}>
+                <img
+                  src={item.image}
+                  alt={`${item.product} — ${item.subtitle}`}
+                  loading="lazy"
                   style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.64rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.16em',
-                    textTransform: 'uppercase',
-                    color: '#241811',
-                    background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 100%)',
-                    padding: '0.26rem 0.72rem',
-                    borderRadius: '20px',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+                {/* Warm Dark Luxury Scrim for Legible Floating Badges */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(20, 14, 10, 0.12) 0%, rgba(24, 17, 12, 0.88) 100%)',
+                    pointerEvents: 'none',
+                  }}
+                />
+                {/* Floating Step Badge & Timing Pill */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '0.9rem',
+                    left: '1.15rem',
+                    right: '1.15rem',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '0.5rem',
                   }}
                 >
-                  {item.step}
-                </span>
-                <span
+                  <span
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '0.64rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.16em',
+                      textTransform: 'uppercase',
+                      color: '#241811',
+                      background: 'linear-gradient(135deg, #F3DC9C 0%, #D4A83E 100%)',
+                      padding: '0.28rem 0.78rem',
+                      borderRadius: '20px',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.28)',
+                    }}
+                  >
+                    {item.step}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '0.64rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: '#F3DC9C',
+                      background: 'rgba(26, 20, 16, 0.72)',
+                      backdropFilter: 'blur(6px)',
+                      padding: '0.26rem 0.65rem',
+                      borderRadius: '16px',
+                      border: '1px solid rgba(212, 175, 55, 0.35)',
+                    }}
+                  >
+                    {item.timing}
+                  </span>
+                </div>
+              </div>
+
+              {/* Card Editorial Body */}
+              <div style={{ padding: '1.4rem 1.5rem 1.55rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                <h3
+                  style={{
+                    fontFamily: 'Cormorant Garamond, Georgia, serif',
+                    fontSize: '1.8rem',
+                    fontWeight: 700,
+                    color: '#FFF6E3',
+                    margin: '0 0 0.22rem 0',
+                    lineHeight: 1.08,
+                  }}
+                >
+                  {item.product}
+                </h3>
+
+                <div
                   style={{
                     fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.66rem',
+                    fontSize: '0.7rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: '#D4AF37',
+                    marginBottom: '0.85rem',
+                  }}
+                >
+                  {item.subtitle}
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.84rem',
+                    lineHeight: 1.65,
+                    color: 'rgba(245, 232, 206, 0.86)',
+                    margin: '0 0 1.25rem 0',
+                    flex: 1,
+                  }}
+                >
+                  {item.instructions}
+                </p>
+
+                <div
+                  style={{
+                    paddingTop: '0.85rem',
+                    borderTop: '1px solid rgba(196, 164, 108, 0.24)',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.7rem',
                     fontWeight: 600,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
-                    color: '#D4AF37',
+                    color: '#EAD8B5',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
                   }}
                 >
-                  {item.timing}
-                </span>
-              </div>
-
-              <h3
-                style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
-                  fontSize: '1.75rem',
-                  fontWeight: 700,
-                  color: '#FFF6E3',
-                  margin: '0 0 0.25rem 0',
-                  lineHeight: 1.1,
-                }}
-              >
-                {item.product}
-              </h3>
-
-              <div
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.72rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: '#C4A46C',
-                  marginBottom: '0.85rem',
-                }}
-              >
-                {item.subtitle}
-              </div>
-
-              <p
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.84rem',
-                  lineHeight: 1.65,
-                  color: 'rgba(245, 232, 206, 0.84)',
-                  margin: '0 0 1.25rem 0',
-                  flex: 1,
-                }}
-              >
-                {item.instructions}
-              </p>
-
-              <div
-                style={{
-                  paddingTop: '0.8rem',
-                  borderTop: '1px solid rgba(196, 164, 108, 0.2)',
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.7rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: '#EAD8B5',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                }}
-              >
-                <span style={{ color: '#D4AF37' }}>✦</span>
-                <span>Recommended: {item.dosage}</span>
+                  <span style={{ color: '#D4AF37' }}>✦</span>
+                  <span>Recommended: {item.dosage}</span>
+                </div>
               </div>
             </motion.div>
           ))}
